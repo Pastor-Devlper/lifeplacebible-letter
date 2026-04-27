@@ -3,16 +3,36 @@ import { getCollection } from 'astro:content';
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPost from "../components/BlogPost.astro";
 
-const pageTitle = "Lifeplace Bible Ministries Blog";
+const pageTitle = "생터 소식";
 const allPosts = await getCollection('blog');
 ---
 <BaseLayout pageTitle={pageTitle}>
-  <h2>My awesome blog subtitle</h2>
-    <p>This is where I will post about my journey learning Astro.</p>
-    <ul>
-      {allPosts.map((post) => (
-          <BlogPost url={`/posts/${post.id}`} title={post.data.title} />
-        ))
-      }
-    </ul>
+  <h2>생터에 오신 것을 환영합니다!</h2>
+  <p>여기서 생터의 최신 소식을 만나보세요.</p>
+
+  <ul class="posts-grid">
+    {allPosts.map((post) => (
+      <BlogPost
+        url={`/posts/${post.id}`}
+        title={post.data.title}
+        image={post.data.image}
+        pubDate={post.data.pubDate}
+      />
+    ))}
+  </ul>
 </BaseLayout>
+
+<style>
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 280px));
+    gap: 1.5rem;
+    padding: 0;
+    margin: 2rem 0 0;
+    list-style: none;
+  }
+
+  .posts-grid li {
+    list-style: none;
+  }
+</style>

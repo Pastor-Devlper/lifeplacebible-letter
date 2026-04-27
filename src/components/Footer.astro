@@ -8,10 +8,22 @@ import Social from './Social.astro';
     gap: 1rem;
     margin-top: 2rem;
   }
+
+  .social-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    color: white;
+    background-color: #4c1d95;
+    text-decoration: none;
+  }
 </style>
 
 <footer>
-  <Social platform="twitter" username="astrobuild" />
-  <Social platform="github" username="withastro" />
-  <Social platform="youtube" username="astrodotbuild" />
+  <a href="https://info.ahaja.org" target="_blank" rel="noopener noreferrer" class="social-button" aria-label="생터성경사역원">
+    생터홈페이지
+  </a>
+  <Social platform="instagram" username="ahaja_official" />
+  <Social platform="youtube" username="@생터성경사역원" />
 </footer>
