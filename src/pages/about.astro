@@ -1,8 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const pageTitle = "사) 생터성경사역원은 ~";
-
+const pageTitle = "사)생터성경사역원은";
 const identity = {
   firstName: "Sarah",
   country: "Canada",
@@ -32,22 +31,51 @@ const textCase = "uppercase";
             text-transform: var(--textCase);
             }
     </style>
-    <h2>막힌 곳을 뚫어주는 ‘어? 성경이 읽어지네’ 기반의 성경교육기관</h2>
+    <div class="about-content">
+        <h2>막힌 곳을 뚫어주는 '어? 성경이 읽어지네' 기반의 성경교육기관</h2>
 
-    <p>누구나 성경을 입체적으로 읽을 수 있도록 도와주는 전문강사를 양성하고 있으며,</p>
+        <p>누구나 성경을 입체적으로 읽을 수 있도록 도와주는 전문강사를 양성하고 있으며,</p>
 
-    <p>전문강사는 1단계 성경일독학교(성경방), 2단계 인도자 컨퍼런스의 과정을 수료한 후</p>
+        <p>전문강사는 1단계 성경일독학교(성경방), 2단계 인도자 컨퍼런스의 과정을 수료한 후</p>
 
-    {happy && <p>마지막 단계인 ‘전문강사스쿨’이라고 하는 6개월간의 정규과정을 거쳐서 세워지게 됩니다.</p>}
+        {happy && <p>마지막 단계인 '전문강사스쿨'이라고 하는 6개월간의 정규과정을 거쳐서 세워지게 됩니다.</p>}
 
-    {finished && <p>그 외의 여러가지 사역을 동반하고 있습니다.</p>}
+        {finished && <p>그 외의 여러가지 사역을 동반하고 있습니다.</p>}
 
-    {/* {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>} */}
+        {/* {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>} */}
 
-    <p>세부 사역들은 다음과 같습니다.</p>
-        <ul>
-        {skills.map((skill) => <li class="skill">{skill}</li>)}
-        </ul>
+        <p>세부 사역들은 다음과 같습니다.</p>
+            <ul>
+            {skills.map((skill) => <li class="skill">{skill}</li>)}
+            </ul>
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/adsysdKsbeo?si=1MiegiC04E5vlkey" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/adsysdKsbeo?si=1MiegiC04E5vlkey" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <style>
+        .about-content {
+            max-width: 80ch;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .about-content iframe {
+            width: 100%;
+            max-width: 560px;
+            height: auto;
+            aspect-ratio: 16/9;
+            margin: 2rem auto;
+            display: block;
+        }
+
+        @media screen and (max-width: 768px) {
+            .about-content {
+                padding: 0 0.5rem;
+            }
+
+            .about-content iframe {
+                max-width: 100%;
+            }
+        }
+    </style>
 </BaseLayout>

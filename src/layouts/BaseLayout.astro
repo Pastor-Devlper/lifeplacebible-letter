@@ -17,8 +17,10 @@ const { pageTitle } = Astro.props;
   <body>
     <Header />
       <h1 class="page-title">
-        <img src="/logo01.png" alt="생터 로고" class="title-logo" />
-        {pageTitle}
+        <span class="title-logo-wrapper">
+          <img src="/logo01.png" alt="생터 로고" class="title-logo" />
+        </span>
+        <span class="title-text">{pageTitle}</span>
       </h1>
       <slot />
       <Footer />
@@ -29,17 +31,24 @@ const { pageTitle } = Astro.props;
 </html>
 <style>
   .page-title {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
     margin: 1rem 0;
     font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .title-logo-wrapper {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 0.75rem;
   }
 
   .title-logo {
     width: 1em;
     height: 1em;
     object-fit: contain;
-    flex-shrink: 0;
+  }
+
+  .title-text {
+    display: inline;
   }
 </style>

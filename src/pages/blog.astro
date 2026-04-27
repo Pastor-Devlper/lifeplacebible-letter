@@ -30,9 +30,17 @@ const allPosts = await getCollection('blog');
     padding: 0;
     margin: 2rem 0 0;
     list-style: none;
+    justify-content: center;
   }
 
   .posts-grid li {
     list-style: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    .posts-grid {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      justify-content: center;
+    }
   }
 </style>
