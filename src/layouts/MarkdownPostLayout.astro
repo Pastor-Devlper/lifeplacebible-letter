@@ -114,6 +114,11 @@ const { frontmatter } = Astro.props;
     color: #bbb;
   }
 
+  .lightbox-content:hover {
+    opacity: 1; /* 팝업된 이미지는 호버 시 투명도 변경 없음 */
+    cursor: default; /* 팝업된 이미지는 호버 시 커서 변경 없음 */
+  }
+
   @keyframes fadeIn {
     from {
       opacity: 0;
