@@ -4,7 +4,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPost from "../components/BlogPost.astro";
 
 const pageTitle = "생터 소식";
-const allPosts = await getCollection('blog');
+const allPosts = (await getCollection('blog'))
+  .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
 ---
 <BaseLayout pageTitle={pageTitle}>
   <h2>생터에 오신 것을 환영합니다!</h2>
@@ -20,6 +21,12 @@ const allPosts = await getCollection('blog');
       />
     ))}
   </ul>
+
+  {allPosts.length > 6 && (
+    <div class="load-more-container">
+      <button id="load-more-btn" class="load-more-btn">더 보기</button>
+    </div>
+  )}
 </BaseLayout>
 
 <style>
@@ -43,4 +50,56 @@ const allPosts = await getCollection('blog');
       justify-content: center;
     }
   }
+
+  .load-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .load-more-btn {
+    padding: 0.8rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #00539F;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+  }
+
+  .load-more-btn:hover {
+    background-color: #003d73;
+  }
+
+  .load-more-btn:active {
+    transform: scale(0.98);
+  }
 </style>
+
+<script>
+  const postsList = document.querySelector('.posts-grid');
+  const loadMoreBtn = document.getElementById('load-more-btn');
+  
+  if (postsList && loadMoreBtn) {
+    const allItems = Array.from(postsList.children) as HTMLElement[];
+    let visibleItems = 6; // 한 번에 보여줄 개수
+
+    // 초기에 6개 이후 항목 숨기기
+    allItems.slice(visibleItems).forEach(item => item.style.display = 'none');
+
+    // 더 보기 버튼 클릭 시 6개씩 추가 노출
+    loadMoreBtn.addEventListener('click', () => {
+      const nextVisible = visibleItems + 6;
+      allItems.slice(visibleItems, nextVisible).forEach(item => item.style.display = '');
+      visibleItems = nextVisible;
+      
+      // 모든 포스트가 노출되면 버튼 숨기기
+      if (visibleItems >= allItems.length) {
+        loadMoreBtn.style.display = 'none';
+      }
+    });
+  }
+</script>
