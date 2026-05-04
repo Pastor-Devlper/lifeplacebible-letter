@@ -6,7 +6,7 @@ image:
     url: "https://res.cloudinary.com/djt4n04dz/image/upload/v1777858718/LifePlaceBible/0331_%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%91%E1%85%A1%E1%86%AB%E1%84%80%E1%85%AE%E1%86%A8_%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%80%E1%85%A1%E1%86%AB_03_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_eeznpg.jpg"
     alt: "2026 OTML"
 pubDate: 2026-03-31
-tags: ["도서출판 생터", "1/4분기", "출간 서적"]
+tags: ["도서출판 생터", "일사분기", "출간 서적"]
 ---
 1/4분기 생터의 출간서적입니다.
 

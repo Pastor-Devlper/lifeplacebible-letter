@@ -6,7 +6,7 @@ image:
     url: "https://res.cloudinary.com/djt4n04dz/image/upload/v1777859706/LifePlaceBible/IMG_3502_unq7ub.jpg"
     alt: "신임지부장 권역장 일동"
 pubDate: 2026-03-31
-tags: ["1/4분기", "생터 소식", "생터 행사"]
+tags: ["일사분기", "생터 소식", "생터 행사"]
 ---
 ### 1/4분기 생터의 행사 소식입니다.
 
