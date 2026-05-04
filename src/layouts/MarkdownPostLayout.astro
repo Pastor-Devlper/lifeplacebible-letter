@@ -116,7 +116,6 @@ const { frontmatter } = Astro.props;
 
   .lightbox-content:hover {
     opacity: 1; /* 팝업된 이미지는 호버 시 투명도 변경 없음 */
-    cursor: default; /* 팝업된 이미지는 호버 시 커서 변경 없음 */
   }
 
   @keyframes fadeIn {
@@ -177,6 +176,7 @@ const { frontmatter } = Astro.props;
             lightboxImage.src = imgElement.src;
             lightboxImage.alt = imgElement.alt;
             lightbox?.classList.add('active');
+            document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
           }
         });
       }
@@ -185,12 +185,14 @@ const { frontmatter } = Astro.props;
     // 닫기 버튼 클릭
     lightboxClose?.addEventListener('click', () => {
       lightbox?.classList.remove('active');
+      document.body.style.overflow = 'auto'; // 배경 스크롤 허용
     });
 
     // 배경 클릭
     lightbox?.addEventListener('click', (e) => {
       if (e.target === lightbox) {
         lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto'; // 배경 스크롤 허용
       }
     });
 
