@@ -32,12 +32,11 @@ const allPosts = (await getCollection('blog'))
 <style>
   .posts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 280px));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     padding: 0;
     margin: 2rem 0 0;
     list-style: none;
-    justify-content: center;
   }
 
   .posts-grid li {
@@ -78,28 +77,3 @@ const allPosts = (await getCollection('blog'))
     transform: scale(0.98);
   }
 </style>
-
-<script>
-  const postsList = document.querySelector('.posts-grid');
-  const loadMoreBtn = document.getElementById('load-more-btn');
-  
-  if (postsList && loadMoreBtn) {
-    const allItems = Array.from(postsList.children) as HTMLElement[];
-    let visibleItems = 6; // 한 번에 보여줄 개수
-
-    // 초기에 6개 이후 항목 숨기기
-    allItems.slice(visibleItems).forEach(item => item.style.display = 'none');
-
-    // 더 보기 버튼 클릭 시 6개씩 추가 노출
-    loadMoreBtn.addEventListener('click', () => {
-      const nextVisible = visibleItems + 6;
-      allItems.slice(visibleItems, nextVisible).forEach(item => item.style.display = '');
-      visibleItems = nextVisible;
-      
-      // 모든 포스트가 노출되면 버튼 숨기기
-      if (visibleItems >= allItems.length) {
-        loadMoreBtn.style.display = 'none';
-      }
-    });
-  }
-</script>

@@ -10,7 +10,7 @@ html {
 body {
   margin: 0 auto;
   width: 100%;
-  max-width: 80ch;
+  max-width: 110ch;
   padding: 1rem;
   line-height: 1.5;
 }
@@ -23,10 +23,14 @@ h1 {
   margin: 1rem 0;
   font-size: 2.5rem;
   font-family: 'Gowun Dodum', sans-serif;
+  text-align: center;
+  color: #0d0950
 }
 
 h2 {
   font-family: 'Gowun Batang', serif;
+  text-align: center;
+  color: #0d0950
 }
 
 /* nav 스타일 */
@@ -42,7 +46,7 @@ h2 {
 .nav-links {
   width: 100%;
   display: none;
-  margin: 0;
+  margin-right: 10px;
 }
 
 .nav-links a {
@@ -67,7 +71,7 @@ h2 {
 
 @media screen and (min-width: 636px) {
   .nav-links {
-    margin-left: 5em;
+    margin-left: auto;
     display: block;
     position: static;
     width: auto;
