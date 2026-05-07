@@ -2,18 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "생터성경사역원은";
-const identity = {
-  firstName: "Sarah",
-  country: "Canada",
-  occupation: "Technical Writer",
-  hobbies: ["photography", "birdwatching", "baseball"],
-};
-
 const skills = ["지부운영국: 국내사역", "SI국: 해외사역", "출판국: 교재, PPT", "다음세대: KIDS, YRG, 펄", "군사역본부", "총무국"];
 
 const happy = true;
 const finished = true;
-const goal = 3;
 
 const skillColor = "crimson";
 const fontWeight = "bold";
@@ -42,14 +34,12 @@ const textCase = "uppercase";
 
         {finished && <p>그 외의 여러가지 사역을 동반하고 있습니다.</p>}
 
-        {/* {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>} */}
-
         <p>세부 사역들은 다음과 같습니다.</p>
             <ul>
             {skills.map((skill) => <li class="skill">{skill}</li>)}
             </ul>
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/adsysdKsbeo?si=1MiegiC04E5vlkey" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/adsysdKsbeo?si=1MiegiC04E5vlkey" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 
     <style>

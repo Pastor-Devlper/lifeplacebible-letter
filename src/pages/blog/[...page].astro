@@ -17,10 +17,29 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 
 const { page } = Astro.props;
 const pageTitle = "생터 소식";
+
+const allPosts = await getCollection('blog');
+const latestDate = new Date(Math.max(...allPosts.map(p => new Date(p.data.pubDate).valueOf())));
+const oneMonthBeforeLatest = new Date(latestDate);
+oneMonthBeforeLatest.setMonth(oneMonthBeforeLatest.getMonth() - 1);
+
+const recentTags = [...new Set(
+  allPosts
+    .filter(post => new Date(post.data.pubDate) >= oneMonthBeforeLatest)
+    .flatMap(post => post.data.tags ?? [])
+)];
 ---
 <BaseLayout pageTitle={pageTitle}>
   <h2>생터에 오신 것을 환영합니다!</h2>
   <p>여기서 생터의 최신 소식을 만나보세요.</p>
+
+  {recentTags.length > 0 && (
+    <div class="recent-tags">
+      {recentTags.map(tag => (
+        <a href={`/tags/${tag}`} class="tag-pill">{tag}</a>
+      ))}
+    </div>
+  )}
 
   <ul class="posts-grid">
     {page.data.map((post) => (
@@ -36,30 +55,54 @@ const pageTitle = "생터 소식";
   {page.lastPage > 1 && (
     <nav class="pagination" aria-label="페이지 이동">
       {page.url.prev
-        ? <a href={page.url.prev} class="page-btn">← 이전</a>
-        : <span class="page-btn disabled">← 이전</span>
+        ? <a href={page.url.prev} class="page-btn" aria-label="이전 페이지">&#8249;</a>
+        : <span class="page-btn disabled" aria-hidden="true">&#8249;</span>
       }
 
-      <div class="page-numbers">
-        {Array.from({ length: page.lastPage }, (_, i) => i + 1).map((num) => (
-          <a
-            href={num === 1 ? '/blog/' : `/blog/${num}`}
-            class={`page-num ${num === page.currentPage ? 'active' : ''}`}
-          >
-            {num}
-          </a>
-        ))}
-      </div>
+      {Array.from({ length: page.lastPage }, (_, i) => i + 1).map((num) => (
+        <a
+          href={num === 1 ? '/blog/' : `/blog/${num}`}
+          class={`page-num ${num === page.currentPage ? 'active' : ''}`}
+        >
+          {num}
+        </a>
+      ))}
 
       {page.url.next
-        ? <a href={page.url.next} class="page-btn">다음 →</a>
-        : <span class="page-btn disabled">다음 →</span>
+        ? <a href={page.url.next} class="page-btn" aria-label="다음 페이지">&#8250;</a>
+        : <span class="page-btn disabled" aria-hidden="true">&#8250;</span>
       }
     </nav>
   )}
 </BaseLayout>
 
 <style>
+  .recent-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0 0;
+    justify-content: center;
+  }
+
+  .tag-pill {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #0d0950;
+    background-color: #eef2ff;
+    border-radius: 2rem;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    outline: gray 1px solid;
+  }
+
+  .tag-pill:hover {
+    background-color: #0d0950;
+    color: #ffffff;
+  }
+
   .posts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 280px));
@@ -84,53 +127,50 @@ const pageTitle = "생터 소식";
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
     margin: 3rem 0 2rem;
+    line-height: 1;
   }
 
-  .page-btn {
-    padding: 0.5rem 1.2rem;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #ffffff;
-    background-color: #00539F;
-    text-decoration: none;
-    border-radius: 2rem;
-    transition: background-color 0.2s ease;
-  }
-
-  .page-btn:hover {
-    background-color: #003d73;
-  }
-
-  .page-btn.disabled {
-    background-color: #ccc;
-    cursor: default;
-    pointer-events: none;
-  }
-
-  .page-numbers {
-    display: flex;
-    gap: 0.4rem;
-  }
-
+  .page-btn,
   .page-num {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #00539F;
-    text-decoration: none;
+    width: 24px;
+    height: 24px;
+    margin: 0 3px;
+    font-size: 14px;
     border-radius: 50%;
-    border: 2px solid transparent;
-    transition: all 0.2s ease;
+    text-decoration: none;
+    box-sizing: border-box;
+    border: none;
+    background: none;
+    transition: background-color 0.15s ease;
+  }
+
+  .page-btn {
+    font-size: 20px;
+    color: #555;
+  }
+
+  .page-btn:hover {
+    background: none;
+    color: #222;
+  }
+
+  .page-btn.disabled {
+    color: #ccc;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .page-num {
+    color: #212121;
+    font-weight: 500;
   }
 
   .page-num:hover {
-    border-color: #00539F;
+    background-color: rgba(0, 83, 159, 0.1);
   }
 
   .page-num.active {

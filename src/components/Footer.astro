@@ -5,7 +5,8 @@ import Social from './Social.astro';
 <style>
   footer {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 1rem;
     margin-top: 2rem;
   }
@@ -18,13 +19,47 @@ import Social from './Social.astro';
     color: white;
     background-color: #4c1d95;
     text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .contact-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  .contact-info li {
+    margin-bottom: 0;
+  }
+
+  .copyright {
+    margin-top: 0;
+    font-size: 0.8rem;
+    color: #888;
   }
 </style>
 
 <footer>
-  <a href="https://info.ahaja.org" target="_blank" rel="noopener noreferrer" class="social-button" aria-label="생터성경사역원">
-    생터홈페이지
-  </a>
-  <Social platform="instagram" username="ahaja_official" />
-  <Social platform="youtube" username="@생터성경사역원" />
+  <div class="social-links">
+    <a href="https://info.ahaja.org" target="_blank" rel="noopener noreferrer" class="social-button" aria-label="생터성경사역원">
+      생터홈페이지
+    </a>
+    <a href="https://www.instagram.com/ahaja_official" target="_blank" rel="noopener noreferrer" class="social-button" aria-label="instagram">
+      Instagram
+    </a>
+    <a href="https://www.youtube.com/@%EC%83%9D%ED%84%B0%EC%84%B1%EA%B2%BD%EC%82%AC%EC%97%AD%EC%9B%90" target="_blank" rel="noopener noreferrer" class="social-button" aria-label="youtube">
+      YouTube
+    </a>
+  </div>
+  <div class="contact-info">
+    <ul>
+      <li>생터성경사역원 미디어팀</li>
+      <li>전화: 043-236-3927 (내선 2)</li>
+      <li>주소: 충북 청주시 흥덕구 오송읍 연제1길25</li>
+      <li class="copyright">Copyright &copy; Life Place Bible Ministries. All Rights Reserved.</li>
+    </ul>
+  </div>
 </footer>
