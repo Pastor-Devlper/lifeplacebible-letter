@@ -1,0 +1,112 @@
+---
+// Carousel.astro
+export interface Props {
+  images: string[];
+  titles: string[];
+  links: string[];
+}
+
+const { images, titles, links } = Astro.props;
+---
+
+<div class="carousel">
+  <div class="carousel-container" id="carousel-container">
+    {images.map((image, index) => (
+      <a href={links[index]} class="carousel-slide" data-slide={index}>
+        <img src={image} alt={`Slide ${index + 1}`} />
+        <div class="carousel-title">{titles[index]}</div>
+      </a>
+    ))}
+  </div>
+  <button class="carousel-prev" id="prev">&lt;</button>
+  <button class="carousel-next" id="next">&gt;</button>
+</div>
+
+<style>
+  .carousel {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    aspect-ratio: 16 / 9;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .carousel-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .carousel-prev,
+  .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  .carousel-prev {
+    left: 10px;
+  }
+
+  .carousel-next {
+    right: 10px;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('carousel-container') as HTMLElement;
+    const prevBtn = document.getElementById('prev') as HTMLButtonElement;
+    const nextBtn = document.getElementById('next') as HTMLButtonElement;
+    let currentIndex = 0;
+    const totalSlides = container.children.length;
+
+    function updateCarousel() {
+      container.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalSlides - 1;
+      updateCarousel();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex < totalSlides - 1) ? currentIndex + 1 : 0;
+      updateCarousel();
+    });
+  });
+</script>

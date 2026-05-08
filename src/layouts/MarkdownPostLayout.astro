@@ -8,14 +8,17 @@ const { frontmatter } = Astro.props;
 
   <p>Written by: {frontmatter.author}</p>
   
-  <img src={frontmatter.image.url} width="500" alt={frontmatter.image.alt} class="post-image clickable-image" />
+  <img src={frontmatter.image.url} width="500" alt={frontmatter.image.alt} class="post-image no-lightbox" />
 
   <slot />
 
   <!-- 라이트박스 모달 -->
   <div id="lightbox" class="lightbox">
     <span class="lightbox-close">&times;</span>
+    <button class="lightbox-prev">&#10094;</button>
     <img id="lightbox-image" class="lightbox-content" alt="" />
+    <button class="lightbox-next">&#10095;</button>
+    <span class="lightbox-counter"></span>
   </div>
 
   <div class="tags">
@@ -115,7 +118,49 @@ const { frontmatter } = Astro.props;
   }
 
   .lightbox-content:hover {
-    opacity: 1; /* 팝업된 이미지는 호버 시 투명도 변경 없음 */
+    opacity: 1;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+    z-index: 1001;
+  }
+
+  .lightbox-prev { left: 20px; }
+  .lightbox-next { right: 20px; }
+
+  .lightbox-prev:hover,
+  .lightbox-next:hover {
+    background: rgba(255, 255, 255, 0.35);
+  }
+
+  .lightbox-prev:disabled,
+  .lightbox-next:disabled {
+    opacity: 0.2;
+    cursor: default;
+  }
+
+  .lightbox-counter {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 4px 12px;
+    border-radius: 20px;
   }
 
   @keyframes fadeIn {
@@ -150,61 +195,82 @@ const { frontmatter } = Astro.props;
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightbox-image') as HTMLImageElement;
     const lightboxClose = document.querySelector('.lightbox-close');
+    const prevBtn = document.querySelector('.lightbox-prev') as HTMLButtonElement;
+    const nextBtn = document.querySelector('.lightbox-next') as HTMLButtonElement;
+    const counter = document.querySelector('.lightbox-counter') as HTMLSpanElement;
 
-    // 포스트 이미지 클릭
-    const clickableImages = document.querySelectorAll('.clickable-image');
-    clickableImages.forEach((img) => {
-      img.addEventListener('click', () => {
-        const imgElement = img as HTMLImageElement;
-        if (lightboxImage) {
-          lightboxImage.src = imgElement.src;
-          lightboxImage.alt = imgElement.alt;
-          lightbox?.classList.add('active');
-        }
-      });
-    });
+    let images: HTMLImageElement[] = [];
+    let currentIndex = 0;
 
-    // 마크다운 내의 모든 이미지 클릭 (clickable-image 제외)
-    const allImages = document.querySelectorAll('img:not(.clickable-image)');
-    allImages.forEach((img) => {
-      // 레이아웃이나 컴포넌트의 이미지는 제외
-      if (!img.closest('header') && !img.closest('footer') && !img.closest('nav')) {
-        img.classList.add('markdown-image');
-        img.addEventListener('click', () => {
-          const imgElement = img as HTMLImageElement;
-          if (lightboxImage) {
-            lightboxImage.src = imgElement.src;
-            lightboxImage.alt = imgElement.alt;
-            lightbox?.classList.add('active');
-            document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
-          }
-        });
-      }
-    });
+    function collectImages() {
+      const postImages = Array.from(document.querySelectorAll('.clickable-image:not(.no-lightbox)')) as HTMLImageElement[];
+      const markdownImages = Array.from(
+        document.querySelectorAll('img:not(.clickable-image):not(#lightbox-image):not(.no-lightbox)')
+      ).filter(
+        (img) => !img.closest('header') && !img.closest('footer') && !img.closest('nav')
+      ) as HTMLImageElement[];
 
-    // 닫기 버튼 클릭
-    lightboxClose?.addEventListener('click', () => {
+      markdownImages.forEach((img) => img.classList.add('markdown-image'));
+      images = [...postImages, ...markdownImages];
+    }
+
+    function openLightbox(index: number) {
+      if (!lightbox || !lightboxImage) return;
+      currentIndex = index;
+      lightboxImage.src = images[currentIndex].src;
+      lightboxImage.alt = images[currentIndex].alt;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      updateNav();
+    }
+
+    function closeLightbox() {
       lightbox?.classList.remove('active');
-      document.body.style.overflow = 'auto'; // 배경 스크롤 허용
+      document.body.style.overflow = 'auto';
+    }
+
+    function updateNav() {
+      if (counter) counter.textContent = `${currentIndex + 1} / ${images.length}`;
+      if (prevBtn) prevBtn.disabled = currentIndex === 0;
+      if (nextBtn) nextBtn.disabled = currentIndex === images.length - 1;
+
+      const isOnly = images.length <= 1;
+      if (prevBtn) prevBtn.style.display = isOnly ? 'none' : '';
+      if (nextBtn) nextBtn.style.display = isOnly ? 'none' : '';
+      if (counter) counter.style.display = isOnly ? 'none' : '';
+    }
+
+    function showPrev() {
+      if (currentIndex > 0) openLightbox(currentIndex - 1);
+    }
+
+    function showNext() {
+      if (currentIndex < images.length - 1) openLightbox(currentIndex + 1);
+    }
+
+    collectImages();
+
+    images.forEach((img, i) => {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => openLightbox(i));
     });
 
-    // 배경 클릭
+    lightboxClose?.addEventListener('click', closeLightbox);
+    prevBtn?.addEventListener('click', (e) => { e.stopPropagation(); showPrev(); });
+    nextBtn?.addEventListener('click', (e) => { e.stopPropagation(); showNext(); });
+
     lightbox?.addEventListener('click', (e) => {
-      if (e.target === lightbox) {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = 'auto'; // 배경 스크롤 허용
-      }
+      if (e.target === lightbox) closeLightbox();
     });
 
-    // ESC 키
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        lightbox?.classList.remove('active');
-      }
+      if (!lightbox?.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'ArrowRight') showNext();
     });
   }
 
-  // 페이지 로드 후 실행
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', setupLightbox);
   } else {

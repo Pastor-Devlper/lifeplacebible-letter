@@ -16,7 +16,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 }
 
 const { page } = Astro.props;
-const pageTitle = "생터 소식";
+const pageTitle = "생터 레터";
 
 const allPosts = await getCollection('blog');
 const latestDate = new Date(Math.max(...allPosts.map(p => new Date(p.data.pubDate).valueOf())));
@@ -30,8 +30,7 @@ const recentTags = [...new Set(
 )];
 ---
 <BaseLayout pageTitle={pageTitle}>
-  <h2>생터에 오신 것을 환영합니다!</h2>
-  <p>여기서 생터의 최신 소식을 만나보세요.</p>
+  <h2>생터의 소식을 전해드립니다!</h2>
 
   {recentTags.length > 0 && (
     <div class="recent-tags">
