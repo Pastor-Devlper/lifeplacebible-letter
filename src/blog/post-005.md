@@ -1,14 +1,29 @@
 ---
 title: KIDS 구약3탄 VBS
-author: Media Team
-description: "서울 옥토교회에서 어린이 겨울캠프를 1월  진행하였습니다."
-image:
-    url: "https://res.cloudinary.com/djt4n04dz/image/upload/v1778117271/VBS_%E1%84%89%E1%85%B5%E1%86%AB%E1%84%8B%E1%85%A3%E1%86%A8_3%E1%84%90%E1%85%A1%E1%86%AB_%E1%84%8A%E1%85%A5%E1%86%B7%E1%84%82%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_wagtyj.jpg"
-    alt: "생터 지부장 총무교육 2026"
 pubDate: 2026-01-31
-tags: ["VBS", "키즈국", "겨울캠프"]
+description: 서울 옥토교회에서 어린이 겨울캠프를 1월  진행하였습니다.
+author: Media Team
+image:
+  url: https://res.cloudinary.com/djt4n04dz/image/upload/v1778117271/VBS_%E1%84%89%E1%85%B5%E1%86%AB%E1%84%8B%E1%85%A3%E1%86%A8_3%E1%84%90%E1%85%A1%E1%86%AB_%E1%84%8A%E1%85%A5%E1%86%B7%E1%84%82%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_wagtyj.jpg
+  alt: 생터 지부장 총무교육 2026
+tags:
+  - VBS
+  - 키즈국
+  - 겨울캠프
 ---
-2026년 1월 30~31일 이틀 간 서울 옥토교회에서 신약3탄 KIDS 겨울캠프가 진행되었습니다. 약 300여명의 어린이과 교사들이 참여한 뜨거운 현장이었습니다.
+2026년 1월 30일(금)부터 31일(토)까지 이틀간 서울 옥토교회에서 ‘신약 3탄 KIDS 겨울캠프’가 은혜 가운데 진행되었습니다.
+
+이번 캠프는 어린이들이 신약 성경 말씀을 쉽고 재미있게 배우며 하나님 안에서 믿음을 세워갈 수 있도록 마련되었으며, 
+
+![](/uploads/dsc09882.jpg)
+
+![](/uploads/dsc09902.jpg)
+
+![](/uploads/dsc00341.jpg)
+
+![](/uploads/dsc00351.jpg)
+
+약 300여 명의 어린이들과 교사들이 참여해 뜨거운 열기 속에 진행되었습니다.
 
 ![키즈캠프신약3탄](https://res.cloudinary.com/djt4n04dz/image/upload/v1777272625/LifePlaceBible/0130_VBS_%E1%84%89%E1%85%B5%E1%86%AB%E1%84%8B%E1%85%A3%E1%86%A83%E1%84%90%E1%85%A1%E1%86%AB_02_oagf01.jpg)
 
