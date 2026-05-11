@@ -4,8 +4,11 @@ backend:
 
 locale: ko
 
-media_folder: public/uploads
-public_folder: /uploads
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: djt4n04dz
+    api_key: 912663544675671
 
 collections:
   - name: blog
@@ -32,7 +35,7 @@ collections:
         name: image
         widget: object
         fields:
-          - { label: "이미지 URL (Cloudinary 등)", name: url, widget: string }
+          - { label: "이미지", name: url, widget: image }
           - { label: "이미지 설명 (alt)", name: alt, widget: string }
       - { label: "태그", name: tags, widget: list }
       - { label: "본문", name: body, widget: markdown }
