@@ -9,6 +9,10 @@ media_library:
   config:
     cloud_name: djt4n04dz
     api_key: 912663544675671
+    default_transformations:
+      - - fetch_format: auto
+          quality: auto:low
+          flags: lossy
 
 collections:
   - name: blog
