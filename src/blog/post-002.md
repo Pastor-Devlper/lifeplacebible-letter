@@ -13,6 +13,6 @@ tags:
 ---
 생터의 이사로 수고하시는 박장혁 목사님의 인천 드림교회를 방문하여, 시무식을 진행하고 교회탐방과 친교를 나누는 뜻깊은 시간을 가졌습니다.
 
-![드림교회환영](https://res.cloudinary.com/djt4n04dz/image/upload/v1777263890/LifePlaceBible/0113_%E1%84%89%E1%85%B5%E1%84%86%E1%85%AE%E1%84%89%E1%85%B5%E1%86%A8_02_llrqc1.jpg)
+![드림교회환영](https://res.cloudinary.com/djt4n04dz/image/upload/v1777263890/LifePlaceBible/0113_%E1%84%89%E1%85%B5%E1%84%86%E1%85%AE%E1%84%89%E1%85%B5%E1%86%A8_02_llrqc1.jpg "드림교회 환영")
 
-![](/uploads/kakaotalk_photo_2026-05-04-13-11-02-크게.jpeg)
+![테스트](https://res.cloudinary.com/djt4n04dz/image/upload/v1778470787/IMG_3530_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_fzwgd6.jpg "환영 인사 ~")
