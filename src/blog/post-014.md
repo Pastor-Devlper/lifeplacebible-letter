@@ -19,3 +19,7 @@ tags:
 ![OTML 02](https://res.cloudinary.com/djt4n04dz/image/upload/v1777858180/LifePlaceBible/0323_OTML_03_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_ukqxqu.jpg)
 
 ![OTML 03](https://res.cloudinary.com/djt4n04dz/image/upload/v1777858179/LifePlaceBible/0323_OTML_02_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_wq24si.jpg)
+
+![](/uploads/dsc01077.jpg)
+
+![](/uploads/dsc01134.jpg)
