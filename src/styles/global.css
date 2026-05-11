@@ -113,7 +113,6 @@ html.dark {
 
 .dark .nav-links {
   background: #0d0950;
-  border: 1px solid #4c1d95;
 }
 
 .dark .nav-links a:hover,
@@ -126,7 +125,11 @@ html.dark {
 }
 
 .dark a {
-  color: #ff9776;
+  color: oklch(77.81% 0.13361 38.331);
+}
+
+.dark .post-title {
+  color: #f1f5f9;
 }
 
 html.dark h1,
