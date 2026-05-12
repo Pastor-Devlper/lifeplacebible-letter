@@ -16,3 +16,7 @@ tags:
 ![드림교회환영](https://res.cloudinary.com/djt4n04dz/image/upload/v1777263890/LifePlaceBible/0113_%E1%84%89%E1%85%B5%E1%84%86%E1%85%AE%E1%84%89%E1%85%B5%E1%86%A8_02_llrqc1.jpg "드림교회 환영")
 
 ![테스트](https://res.cloudinary.com/djt4n04dz/image/upload/v1778470787/IMG_3530_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_fzwgd6.jpg "환영 인사 ~")
+
+![](https://res.cloudinary.com/djt4n04dz/image/upload/v1778560515/Lifeplaceletter/hz2aecuojyoekfxrsg7g.jpg)
+
+![](https://res.cloudinary.com/djt4n04dz/image/upload/v1778560541/Lifeplaceletter/mcnbx0pm4n3vdxhgclv7.jpg)
