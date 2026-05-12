@@ -4,7 +4,7 @@ pubDate: 2026-02-24
 description: 2026 정기총회 & 지부장회 임원권역장 모임
 author: Media Team
 image:
-  url: https://res.cloudinary.com/djt4n04dz/image/upload/v1777855086/LifePlaceBible/0224_%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%80%E1%85%B5%E1%84%8E%E1%85%A9%E1%86%BC%E1%84%92%E1%85%AC_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_n8ke8p.jpg
+  url: https://res.cloudinary.com/djt4n04dz/image/upload/v1778559710/Lifeplaceletter/plmxefeoro0rc7k1ld7q.jpg
   alt: 2026 정기총회
 tags:
   - 총회
