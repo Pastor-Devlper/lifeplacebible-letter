@@ -24,3 +24,7 @@ tags:
 신임지부장 권역장 임명식도 함께 진행되었습니다.
 
 ![신임지부장임명](/uploads/kakaotalk_photo_2026-05-04-13-10-55-크게.jpeg)
+
+![](https://res.cloudinary.com/djt4n04dz/image/upload/f_auto,q_auto:low,fl_lossy/v1778557263/Lifeplaceletter/mecpwf37g3jn33z8grfl.jpg)
+
+![](https://res.cloudinary.com/djt4n04dz/image/upload/f_auto,q_auto:low,fl_lossy/v1778557288/Lifeplaceletter/s8l3ofx4x65qhoy9dfd9.jpg)
