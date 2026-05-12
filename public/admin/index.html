@@ -47,10 +47,15 @@
                 // 2단계: CMS에 URL 삽입
                 try {
                   handleInsert(uploadedUrl);
-                  handleClose();
-                } catch (err) {
-                  alert('CMS 삽입 오류: ' + err.message + '\n\n업로드된 URL:\n' + uploadedUrl);
+                } catch (e1) {
+                  try {
+                    handleInsert([uploadedUrl]);
+                  } catch (e2) {
+                    alert('CMS 삽입 오류: ' + e2.message + '\n\n업로드된 URL:\n' + uploadedUrl);
+                    return;
+                  }
                 }
+                try { handleClose(); } catch (_) {}
               };
               input.click();
             },
