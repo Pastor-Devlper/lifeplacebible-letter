@@ -26,24 +26,30 @@
                 formData.append('file', file);
                 formData.append('upload_preset', 'decap_cms');
 
+                // 1단계: Cloudinary 업로드
+                let uploadedUrl;
                 try {
                   const res = await fetch(
                     'https://api.cloudinary.com/v1_1/djt4n04dz/image/upload',
                     { method: 'POST', body: formData }
                   );
                   const data = await res.json();
-                  if (!res.ok) {
-                    throw new Error(data.error?.message || `HTTP ${res.status}`);
-                  }
-                  const url = data.secure_url.replace(
+                  if (!res.ok) throw new Error(data.error?.message || `HTTP ${res.status}`);
+                  uploadedUrl = data.secure_url.replace(
                     '/upload/',
                     '/upload/f_auto,q_auto:low,fl_lossy/'
                   );
-                  handleInsert(url);
+                } catch (err) {
+                  alert('Cloudinary 업로드 실패: ' + err.message);
+                  return;
+                }
+
+                // 2단계: CMS에 URL 삽입
+                try {
+                  handleInsert(uploadedUrl);
                   handleClose();
                 } catch (err) {
-                  console.error('Cloudinary 업로드 실패:', err);
-                  alert('업로드 실패: ' + err.message);
+                  alert('CMS 삽입 오류: ' + err.message + '\n\n업로드된 URL:\n' + uploadedUrl);
                 }
               };
               input.click();
