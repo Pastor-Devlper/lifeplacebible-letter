@@ -17,7 +17,11 @@ tags:
 
 이날 행사에서는 신임 지부장회 임원들의 인사와 소개
 
-![]()
+![](https://res.cloudinary.com/djt4n04dz/image/upload/v1778559468/Lifeplaceletter/hi9nafkansk74zcfcdwu.jpg)
+
+![](https://res.cloudinary.com/djt4n04dz/image/upload/v1778559506/Lifeplaceletter/v2vj4cdtxvwhsk8ig4o0.jpg)
+
+![](https://res.cloudinary.com/djt4n04dz/image/upload/v1778559491/Lifeplaceletter/tmihcdvdtd85fanapt0t.jpg)
 
 도 함께 진행됐으며, 참석자들은 새해 지부 사역의 비전과 협력 방안을 함께 나누는 시간을 가졌습니다. 
 
