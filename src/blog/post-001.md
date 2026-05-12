@@ -15,7 +15,7 @@ tags:
 
 이날 행사에서는 전문강사스쿨 입학식과 함께 신임 지부장 및 권역장 임명식도 함께 진행됐다.
 
-![신임지부장임명](/uploads/kakaotalk_photo_2026-05-04-13-10-55-크게.jpeg)
+![]()
 
 ![](https://res.cloudinary.com/djt4n04dz/image/upload/f_auto,q_auto:low,fl_lossy/v1778557263/Lifeplaceletter/mecpwf37g3jn33z8grfl.jpg)
 
