@@ -19,11 +19,11 @@ tags:
 
 ![]()
 
-![](/uploads/dsc09902.jpg)
+![](https://res.cloudinary.com/djt4n04dz/image/upload/v1778552463/LifePlaceBible/dsc09902_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_emfnk2.jpg)
 
-![](/uploads/dsc00341.jpg)
+![](https://res.cloudinary.com/djt4n04dz/image/upload/v1778552463/LifePlaceBible/dsc00341_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_fs6qou.jpg)
 
-![](/uploads/dsc00351.jpg)
+![](https://res.cloudinary.com/djt4n04dz/image/upload/v1778552464/LifePlaceBible/dsc00351_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_ettfjk.jpg)
 
 약 300여 명의 어린이들과 교사들이 참여해 뜨거운 열기 속에 진행되었습니다.
 

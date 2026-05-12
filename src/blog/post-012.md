@@ -12,7 +12,7 @@ tags:
 ---
 2026년 3월 9일, 제주 예수생명교회에서 제주지부 홈커밍데이가 은혜 가운데 진행되었습니다.
 
-![](/uploads/kakaotalk_20260310_083001316_06-복사본.jpg)
+![](https://res.cloudinary.com/djt4n04dz/image/upload/v1778557992/LifePlaceBible/kakaotalk_20260310_083001316_06-%E1%84%87%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A1%E1%84%87%E1%85%A9%E1%86%AB_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_ccuymb.jpg)
 
 ![이애실 원장 강의](https://res.cloudinary.com/djt4n04dz/image/upload/v1777856816/LifePlaceBible/0309_%E1%84%8C%E1%85%A6%E1%84%8C%E1%85%AE%E1%84%8C%E1%85%B5%E1%84%87%E1%85%AE_%E1%84%92%E1%85%A9%E1%86%B7%E1%84%8F%E1%85%A5%E1%84%86%E1%85%B5%E1%86%BC%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5_01_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_ugfsmz.jpg)
 

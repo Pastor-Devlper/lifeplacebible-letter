@@ -20,6 +20,6 @@ tags:
 
 ![OTML 03](https://res.cloudinary.com/djt4n04dz/image/upload/v1777858179/LifePlaceBible/0323_OTML_02_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_wq24si.jpg)
 
-![](/uploads/dsc01077.jpg)
+![](https://res.cloudinary.com/djt4n04dz/image/upload/v1778558168/LifePlaceBible/dsc01077_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_xbjgt4.jpg)
 
-![](/uploads/dsc01134.jpg)
+![](https://res.cloudinary.com/djt4n04dz/image/upload/v1778558169/LifePlaceBible/dsc01134_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_fsiivf.jpg)

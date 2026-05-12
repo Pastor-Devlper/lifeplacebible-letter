@@ -20,3 +20,7 @@ tags:
 ![](https://res.cloudinary.com/djt4n04dz/image/upload/f_auto,q_auto:low,fl_lossy/v1778557263/Lifeplaceletter/mecpwf37g3jn33z8grfl.jpg)
 
 ![](https://res.cloudinary.com/djt4n04dz/image/upload/f_auto,q_auto:low,fl_lossy/v1778557288/Lifeplaceletter/s8l3ofx4x65qhoy9dfd9.jpg)
+
+신임지부장 권역장 임명식도 함께 진행되었습니다.
+
+![신임지부장임명](https://res.cloudinary.com/djt4n04dz/image/upload/v1777859706/LifePlaceBible/IMG_3502_unq7ub.jpg)
