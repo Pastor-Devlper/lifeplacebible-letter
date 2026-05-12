@@ -4,7 +4,7 @@ pubDate: 2026-01-10
 description: 전국 50개 지부에서 전문강사스쿨이 열렸습니다!
 author: 생터 미디어팀
 image:
-  url: https://res.cloudinary.com/djt4n04dz/image/upload/v1777255850/LifePlaceBible/0110_%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%80%E1%85%A1%E1%86%BC%E1%84%89%E1%85%B3%E1%84%8F%E1%85%AE%E1%86%AF_%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B5%E1%86%A8_02_qunllf.jpg
+  url: https://res.cloudinary.com/djt4n04dz/image/upload/f_auto,q_auto:low,fl_lossy/v1778557901/Lifeplaceletter/zvbivuvc9yr5tzcxs6cz.png
   alt: 전문강사스쿨 온라인 입학식
 tags:
   - 입학식
