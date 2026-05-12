@@ -32,6 +32,9 @@
                     { method: 'POST', body: formData }
                   );
                   const data = await res.json();
+                  if (!res.ok) {
+                    throw new Error(data.error?.message || `HTTP ${res.status}`);
+                  }
                   const url = data.secure_url.replace(
                     '/upload/',
                     '/upload/f_auto,q_auto:low,fl_lossy/'
@@ -40,7 +43,7 @@
                   handleClose();
                 } catch (err) {
                   console.error('Cloudinary 업로드 실패:', err);
-                  alert('이미지 업로드에 실패했습니다. 다시 시도해주세요.');
+                  alert('업로드 실패: ' + err.message);
                 }
               };
               input.click();
