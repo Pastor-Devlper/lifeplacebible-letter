@@ -7,6 +7,51 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
+    <script>window.CMS_MANUAL_INIT = true;</script>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      CMS.registerMediaLibrary({
+        name: 'cloudinary-unsigned',
+        init: ({ options, handleInsert, handleClose }) => {
+          return {
+            show: () => {
+              const input = document.createElement('input');
+              input.type = 'file';
+              input.accept = 'image/*';
+              input.onchange = async (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+
+                const formData = new FormData();
+                formData.append('file', file);
+                formData.append('upload_preset', 'decap_cms');
+
+                try {
+                  const res = await fetch(
+                    'https://api.cloudinary.com/v1_1/djt4n04dz/image/upload',
+                    { method: 'POST', body: formData }
+                  );
+                  const data = await res.json();
+                  const url = data.secure_url.replace(
+                    '/upload/',
+                    '/upload/f_auto,q_auto:low,fl_lossy/'
+                  );
+                  handleInsert(url);
+                  handleClose();
+                } catch (err) {
+                  console.error('Cloudinary 업로드 실패:', err);
+                  alert('이미지 업로드에 실패했습니다. 다시 시도해주세요.');
+                }
+              };
+              input.click();
+            },
+            hide: () => {},
+            enableStandalone: () => true,
+          };
+        },
+      });
+
+      CMS.init();
+    </script>
   </body>
 </html>

@@ -5,14 +5,7 @@ backend:
 locale: ko
 
 media_library:
-  name: cloudinary
-  config:
-    cloud_name: djt4n04dz
-    api_key: 912663544675671
-    default_transformations:
-      - - fetch_format: auto
-          quality: auto:low
-          flags: lossy
+  name: cloudinary-unsigned
 
 collections:
   - name: blog
