@@ -10,7 +10,7 @@ tags:
   - 펄페스티벌
   - 구약 펄페
 ---
-2026년 2월 9일부터 11일까지 3일간 평택 광은기도원에서 ‘구약 펄 페스티벌(Pearl Festival)’이 은혜 가운데 개최되었다.
+2026년 2월 9일부터 11일까지 3일간 평택 광은기도원에서 ‘구약 펄 페스티벌(Pearl Festival)’이 은혜 가운데 개최되었습니다. 
 
 ![](https://res.cloudinary.com/djt4n04dz/image/upload/v1778557279/LifePlaceBible/kakaotalk_photo_2026-04-15-09-34-33-006_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_j5saaz.jpg)
 
