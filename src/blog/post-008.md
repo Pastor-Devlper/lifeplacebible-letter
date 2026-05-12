@@ -17,4 +17,4 @@ tags:
 
 ![](https://res.cloudinary.com/djt4n04dz/image/upload/v1778560083/Lifeplaceletter/pjb7d08vthph97ncd9gi.jpg)
 
-![](https://res.cloudinary.com/djt4n04dz/image/upload/v1778560102/Lifeplaceletter/mw3bcoyirshuugv6f3go.jpg)
+![](https://res.cloudinary.com/djt4n04dz/image/upload/v1778560144/Lifeplaceletter/zubtbwulfx7txz40beiq.jpg)
