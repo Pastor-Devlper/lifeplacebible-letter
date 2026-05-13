@@ -150,21 +150,25 @@
         return true;
       }
 
+      let currentUserName = null;
+
+      // 배지가 사라지면 자동으로 다시 삽입 (페이지 전환 대응)
+      const persistObserver = new MutationObserver(() => {
+        if (currentUserName && !document.getElementById(BADGE_ID)) {
+          insertBadge(currentUserName);
+        }
+      });
+      persistObserver.observe(document.body, { childList: true, subtree: true });
+
       function showUser() {
         const user = window.netlifyIdentity && window.netlifyIdentity.currentUser();
-        const name = user ? (user.user_metadata?.full_name || user.email) : null;
+        currentUserName = user ? (user.user_metadata?.full_name || user.email) : null;
 
         const existing = document.getElementById(BADGE_ID);
-        if (!name) { if (existing) existing.remove(); return; }
-        if (existing) { existing.textContent = name; return; }
+        if (!currentUserName) { if (existing) existing.remove(); return; }
+        if (existing) { existing.textContent = currentUserName; return; }
 
-        if (insertBadge(name)) return;
-
-        const observer = new MutationObserver(() => {
-          if (insertBadge(name)) observer.disconnect();
-        });
-        observer.observe(document.body, { childList: true, subtree: true });
-        setTimeout(() => observer.disconnect(), 10000);
+        insertBadge(currentUserName);
       }
 
       if (window.netlifyIdentity) {
