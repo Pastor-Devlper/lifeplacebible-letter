@@ -127,9 +127,19 @@
         if (!badge) return;
         const avatar = findAvatarSvg();
         if (!avatar) return;
+
         const r = avatar.getBoundingClientRect();
-        badge.style.top  = (r.bottom + 4) + 'px';
-        badge.style.left = (r.left + r.width / 2) + 'px';
+        const idealLeft = r.left - badge.offsetWidth - 8;
+
+        // '빠른 추가' 버튼 래퍼(아바타 래퍼의 이전 형제)와 겹치지 않도록 제한
+        const avatarWrapper = avatar.parentElement;
+        const quickAddWrapper = avatarWrapper && avatarWrapper.previousElementSibling;
+        const minLeft = quickAddWrapper
+          ? quickAddWrapper.getBoundingClientRect().right + 4
+          : 0;
+
+        badge.style.top  = (r.top + r.height / 2) + 'px';
+        badge.style.left = Math.max(idealLeft, minLeft) + 'px';
       }
 
       function insertBadge(name) {
@@ -137,27 +147,25 @@
         const avatar = findAvatarSvg();
         if (!avatar) return false;
 
-        const r = avatar.getBoundingClientRect();
         const badge = document.createElement('div');
         badge.id = BADGE_ID;
         badge.textContent = name;
         badge.style.cssText = `
           position: fixed;
           z-index: 99999;
-          top: ${r.bottom + 4}px;
-          left: ${r.left + r.width / 2}px;
-          transform: translateX(-50%);
-          font-size: 11px;
+          transform: translateY(-50%);
+          font-size: 12px;
           font-family: sans-serif;
           white-space: nowrap;
           color: #fff;
-          background: rgba(0,0,0,0.55);
-          padding: 2px 8px;
+          background: rgba(0,0,0,0.5);
+          padding: 3px 10px;
           border-radius: 10px;
           pointer-events: none;
           line-height: 1.4;
         `;
         document.body.appendChild(badge);
+        repositionBadge();
 
         window.addEventListener('resize', repositionBadge);
         return true;
