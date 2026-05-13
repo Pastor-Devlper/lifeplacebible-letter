@@ -4,7 +4,7 @@ pubDate: 2026-03-23
 description: 2026 OTML
 author: Media Team
 image:
-  url: https://res.cloudinary.com/djt4n04dz/image/upload/v1777858180/LifePlaceBible/0323_OTML_01_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_u4zjci.jpg
+  url: https://res.cloudinary.com/dr5s1mtyi/image/upload/v1778653855/LifePlaceBible/0323_OTML_01_%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2580%25E1%2585%25A6_u4zjci.jpg
   alt: 2026 OTML
 tags:
   - OTML
@@ -14,12 +14,12 @@ tags:
 
 이번 OTML은 코로나19 이후 오랜만에 다시 개최된 현장 집회로, 전국 각지에서 모인 참가자들이 함께 예배하고 공부하며 은혜와 회복의 시간을 가졌습니다.
 
-![OTML 02](https://res.cloudinary.com/djt4n04dz/image/upload/v1777858181/LifePlaceBible/0323_OTML_04_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_elp1ey.jpg)
+![OTML 02](https://res.cloudinary.com/dr5s1mtyi/image/upload/v1778653856/LifePlaceBible/0323_OTML_04_%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2580%25E1%2585%25A6_elp1ey.jpg)
 
-![OTML 02](https://res.cloudinary.com/djt4n04dz/image/upload/v1777858180/LifePlaceBible/0323_OTML_03_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_ukqxqu.jpg)
+![OTML 02](https://res.cloudinary.com/dr5s1mtyi/image/upload/v1778653857/LifePlaceBible/0323_OTML_03_%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2580%25E1%2585%25A6_ukqxqu.jpg)
 
-![OTML 03](https://res.cloudinary.com/djt4n04dz/image/upload/v1777858179/LifePlaceBible/0323_OTML_02_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_wq24si.jpg)
+![OTML 03](https://res.cloudinary.com/dr5s1mtyi/image/upload/v1778653858/LifePlaceBible/0323_OTML_02_%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2580%25E1%2585%25A6_wq24si.jpg)
 
-![](https://res.cloudinary.com/djt4n04dz/image/upload/v1778558168/LifePlaceBible/dsc01077_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_xbjgt4.jpg)
+![](https://res.cloudinary.com/dr5s1mtyi/image/upload/v1778653859/LifePlaceBible/dsc01077_%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2580%25E1%2585%25A6_xbjgt4.jpg)
 
-![](https://res.cloudinary.com/djt4n04dz/image/upload/v1778558169/LifePlaceBible/dsc01134_%E1%84%8F%E1%85%B3%E1%84%80%E1%85%A6_fsiivf.jpg)
+![](https://res.cloudinary.com/dr5s1mtyi/image/upload/v1778653860/LifePlaceBible/dsc01134_%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2580%25E1%2585%25A6_fsiivf.jpg)

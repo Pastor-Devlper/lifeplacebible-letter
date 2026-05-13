@@ -7,8 +7,13 @@ locale: ko
 media_library:
   name: cloudinary
   config:
-    cloud_name: djt4n04dz
-    api_key: 912663544675671
+    cloud_name: dr5s1mtyi
+    api_key: 284355127593946
+    default_transformations:
+      - - quality: auto
+          fetch_format: auto
+          width: 1920
+          crop: limit
 
 collections:
   - name: blog
