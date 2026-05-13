@@ -115,55 +115,60 @@
 
       CMS.init();
 
-      // 아바타 옆에 사용자 이름 표시
-      let nameLabel = null;
+      // 아바타 옆에 사용자 이름 표시 (fixed 배지 방식)
+      const userBadge = document.createElement('div');
+      userBadge.id = 'cms-user-badge';
+      userBadge.style.cssText = `
+        position: fixed;
+        z-index: 99999;
+        color: #fff;
+        font-size: 13px;
+        font-family: sans-serif;
+        white-space: nowrap;
+        pointer-events: none;
+        display: none;
+        align-items: center;
+        line-height: 1;
+      `;
+      document.body.appendChild(userBadge);
 
-      function attachNameToAvatar(name) {
-        // 이미 붙어 있으면 텍스트만 업데이트
-        if (nameLabel) { nameLabel.textContent = name; return; }
-
-        // 화면 상단 우측 영역에서 아바타 img 탐색
-        const avatarImg = Array.from(document.querySelectorAll('img')).find(img => {
-          const r = img.getBoundingClientRect();
-          return r.top < 80 && r.right > window.innerWidth - 200 && r.width > 10;
+      function findAvatarEl() {
+        // img, 또는 상단 우측에 있는 버튼/링크 요소 탐색
+        const candidates = Array.from(document.querySelectorAll('img, button, a, [role="button"]'));
+        return candidates.find(el => {
+          const r = el.getBoundingClientRect();
+          return r.top < 80 && r.top >= 0 && r.right > window.innerWidth - 250 && r.width > 8 && r.width < 120;
         });
+      }
 
-        if (!avatarImg) return; // 아직 렌더링 전 → 재시도
+      function positionBadge(name) {
+        const avatar = findAvatarEl();
+        if (!avatar) return false;
 
-        nameLabel = document.createElement('span');
-        nameLabel.textContent = name;
-        nameLabel.style.cssText = `
-          color: #fff;
-          font-size: 13px;
-          font-family: sans-serif;
-          white-space: nowrap;
-          margin-left: 8px;
-          line-height: 1;
-          pointer-events: none;
-        `;
-
-        // 아바타의 부모(버튼 등) 안에 인라인으로 삽입
-        const parent = avatarImg.parentElement;
-        parent.style.display = 'flex';
-        parent.style.alignItems = 'center';
-        parent.appendChild(nameLabel);
+        const r = avatar.getBoundingClientRect();
+        userBadge.textContent = name;
+        userBadge.style.display = 'flex';
+        // 아바타 왼쪽 바로 옆에 배치
+        userBadge.style.top = (r.top + r.height / 2) + 'px';
+        userBadge.style.left = (r.left - userBadge.offsetWidth - 10) + 'px';
+        userBadge.style.transform = 'translateY(-50%)';
+        return true;
       }
 
       function showUser() {
         const user = window.netlifyIdentity && window.netlifyIdentity.currentUser();
         const name = user ? (user.user_metadata?.full_name || user.email) : null;
-        if (!name) { if (nameLabel) nameLabel.textContent = ''; return; }
+        if (!name) { userBadge.style.display = 'none'; return; }
 
-        attachNameToAvatar(name);
+        if (positionBadge(name)) return;
 
-        // 아바타가 아직 없으면 DOM 변화 감지 후 재시도
-        if (!nameLabel) {
-          const observer = new MutationObserver(() => {
-            attachNameToAvatar(name);
-            if (nameLabel) observer.disconnect();
-          });
-          observer.observe(document.body, { childList: true, subtree: true });
-        }
+        // CMS가 아직 렌더링 중이면 MutationObserver로 재시도
+        const observer = new MutationObserver(() => {
+          if (positionBadge(name)) observer.disconnect();
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+        // 최대 10초 대기 후 포기
+        setTimeout(() => observer.disconnect(), 10000);
       }
 
       if (window.netlifyIdentity) {
