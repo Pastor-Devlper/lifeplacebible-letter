@@ -149,7 +149,7 @@
           background: rgba(0,0,0,0.55);
           padding: 2px 7px;
           border-radius: 10px;
-          margin-top: 4px;
+          margin-top: 2px;
           pointer-events: none;
           line-height: 1.4;
         `;
@@ -162,6 +162,16 @@
         container.style.display = 'flex';
         container.style.flexDirection = 'column';
         container.style.alignItems = 'center';
+        container.style.overflow = 'visible';
+
+        // 조상 요소의 overflow:hidden 해제
+        let ancestor = container.parentElement;
+        for (let i = 0; i < 5; i++) {
+          if (!ancestor) break;
+          ancestor.style.overflow = 'visible';
+          ancestor = ancestor.parentElement;
+        }
+
         container.appendChild(badge);
         return true;
       }
