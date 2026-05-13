@@ -119,12 +119,7 @@
       const BADGE_ID = 'cms-user-badge';
 
       function findAvatarSvg() {
-        return Array.from(document.querySelectorAll('svg')).find(el => {
-          const r = el.getBoundingClientRect();
-          return r.top < 80 && r.top >= 0
-            && r.right > window.innerWidth - 100
-            && r.width >= 28 && r.width <= 40;
-        });
+        return document.querySelector('[aria-label="Account options dropdown"]');
       }
 
       function repositionBadge() {
