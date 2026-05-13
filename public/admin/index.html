@@ -136,11 +136,19 @@
       document.body.appendChild(userBadge);
 
       function findAvatarEl() {
-        // img, 또는 상단 우측에 있는 버튼/링크 요소 탐색
-        const candidates = Array.from(document.querySelectorAll('img, button, a, [role="button"]'));
-        return candidates.find(el => {
+        // 32×32 SVG 아바타를 우선 탐색 (화면 우측 끝 80px 이내)
+        const svgAvatar = Array.from(document.querySelectorAll('svg')).find(el => {
           const r = el.getBoundingClientRect();
-          return r.top < 80 && r.top >= 0 && r.right > window.innerWidth - 250 && r.width > 8 && r.width < 120;
+          return r.top < 80 && r.top >= 0 && r.right > window.innerWidth - 80
+            && r.width >= 28 && r.width <= 40;
+        });
+        if (svgAvatar) return svgAvatar;
+
+        // 폴백: img·button 등 (우측 끝 80px 이내)
+        return Array.from(document.querySelectorAll('img, button, a')).find(el => {
+          const r = el.getBoundingClientRect();
+          return r.top < 80 && r.top >= 0 && r.right > window.innerWidth - 80
+            && r.width > 8 && r.width < 80;
         });
       }
 
