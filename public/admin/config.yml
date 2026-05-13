@@ -5,7 +5,10 @@ backend:
 locale: ko
 
 media_library:
-  name: cloudinary-unsigned
+  name: cloudinary
+  config:
+    cloud_name: djt4n04dz
+    api_key: 912663544675671
 
 collections:
   - name: blog
