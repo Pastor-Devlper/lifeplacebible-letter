@@ -114,6 +114,39 @@
       });
 
       CMS.init();
+
+      // 로그인된 사용자 이름 표시
+      const badge = document.createElement('div');
+      badge.style.cssText = `
+        position: fixed;
+        top: 12px;
+        right: 16px;
+        z-index: 99999;
+        background: rgba(0,0,0,0.55);
+        color: #fff;
+        font-size: 13px;
+        padding: 4px 12px;
+        border-radius: 20px;
+        pointer-events: none;
+        font-family: sans-serif;
+      `;
+      document.body.appendChild(badge);
+
+      function showUser() {
+        const user = window.netlifyIdentity && window.netlifyIdentity.currentUser();
+        if (user) {
+          badge.textContent = user.user_metadata?.full_name || user.email;
+          badge.style.display = 'block';
+        } else {
+          badge.style.display = 'none';
+        }
+      }
+
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', showUser);
+        window.netlifyIdentity.on('login', showUser);
+        window.netlifyIdentity.on('logout', showUser);
+      }
     </script>
   </body>
 </html>
