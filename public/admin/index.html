@@ -122,13 +122,16 @@
         position: fixed;
         z-index: 99999;
         color: #fff;
-        font-size: 13px;
+        font-size: 11px;
         font-family: sans-serif;
         white-space: nowrap;
         pointer-events: none;
         display: none;
         align-items: center;
         line-height: 1;
+        background: rgba(0,0,0,0.55);
+        padding: 3px 8px;
+        border-radius: 10px;
       `;
       document.body.appendChild(userBadge);
 
@@ -148,10 +151,10 @@
         const r = avatar.getBoundingClientRect();
         userBadge.textContent = name;
         userBadge.style.display = 'flex';
-        // 아바타 왼쪽 바로 옆에 배치
-        userBadge.style.top = (r.top + r.height / 2) + 'px';
-        userBadge.style.left = (r.left - userBadge.offsetWidth - 10) + 'px';
-        userBadge.style.transform = 'translateY(-50%)';
+        // 아바타 바로 아래에 배치
+        userBadge.style.top = (r.bottom + 6) + 'px';
+        userBadge.style.left = (r.left + r.width / 2) + 'px';
+        userBadge.style.transform = 'translateX(-50%)';
         return true;
       }
 
