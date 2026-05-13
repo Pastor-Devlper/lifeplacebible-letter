@@ -115,59 +115,36 @@
 
       CMS.init();
 
-      // 아바타 아래에 사용자 이름 표시 (body에 fixed 배지, resize 추적)
+      // '빠른 추가'와 아바타 사이에 사용자 이름을 DOM으로 삽입
       const BADGE_ID = 'cms-user-badge';
-
-      function findAvatarSvg() {
-        return document.querySelector('[aria-label="Account options dropdown"]');
-      }
-
-      function repositionBadge() {
-        const badge = document.getElementById(BADGE_ID);
-        if (!badge) return;
-        const avatar = findAvatarSvg();
-        if (!avatar) return;
-
-        const r = avatar.getBoundingClientRect();
-        const idealLeft = r.left - badge.offsetWidth - 8;
-
-        // '빠른 추가' 버튼 래퍼(아바타 래퍼의 이전 형제)와 겹치지 않도록 제한
-        const avatarWrapper = avatar.parentElement;
-        const quickAddWrapper = avatarWrapper && avatarWrapper.previousElementSibling;
-        const minLeft = quickAddWrapper
-          ? quickAddWrapper.getBoundingClientRect().right + 4
-          : 0;
-
-        badge.style.top  = (r.top + r.height / 2) + 'px';
-        badge.style.left = Math.max(idealLeft, minLeft) + 'px';
-      }
 
       function insertBadge(name) {
         if (document.getElementById(BADGE_ID)) return true;
-        const avatar = findAvatarSvg();
+
+        const avatar = document.querySelector('[aria-label="Account options dropdown"]');
         if (!avatar) return false;
+
+        // 아바타 래퍼 (StyledWrapper div)
+        const avatarWrapper = avatar.parentElement;
+        const actionsContainer = avatarWrapper && avatarWrapper.parentElement;
+        if (!actionsContainer) return false;
 
         const badge = document.createElement('div');
         badge.id = BADGE_ID;
         badge.textContent = name;
         badge.style.cssText = `
-          position: fixed;
-          z-index: 99999;
-          transform: translateY(-50%);
+          display: flex;
+          align-items: center;
           font-size: 12px;
           font-family: sans-serif;
           white-space: nowrap;
           color: #fff;
-          background: rgba(0,0,0,0.5);
-          padding: 3px 10px;
-          border-radius: 10px;
+          padding: 0 8px;
           pointer-events: none;
-          line-height: 1.4;
         `;
-        document.body.appendChild(badge);
-        repositionBadge();
 
-        window.addEventListener('resize', repositionBadge);
+        // '빠른 추가'와 아바타 사이에 삽입
+        actionsContainer.insertBefore(badge, avatarWrapper);
         return true;
       }
 
