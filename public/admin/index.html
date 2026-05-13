@@ -115,70 +115,67 @@
 
       CMS.init();
 
-      // 아바타 옆에 사용자 이름 표시 (fixed 배지 방식)
-      const userBadge = document.createElement('div');
-      userBadge.id = 'cms-user-badge';
-      userBadge.style.cssText = `
-        position: fixed;
-        z-index: 99999;
-        color: #fff;
-        font-size: 11px;
-        font-family: sans-serif;
-        white-space: nowrap;
-        pointer-events: none;
-        display: none;
-        align-items: center;
-        line-height: 1;
-        background: rgba(0,0,0,0.55);
-        padding: 3px 8px;
-        border-radius: 10px;
-      `;
-      document.body.appendChild(userBadge);
+      // 아바타 DOM 안에 사용자 이름을 직접 삽입
+      const BADGE_ID = 'cms-user-badge';
 
-      function findAvatarEl() {
-        // 32×32 SVG 아바타를 우선 탐색 (화면 우측 끝 80px 이내)
-        const svgAvatar = Array.from(document.querySelectorAll('svg')).find(el => {
+      function findAvatarSvg() {
+        return Array.from(document.querySelectorAll('svg')).find(el => {
           const r = el.getBoundingClientRect();
-          return r.top < 80 && r.top >= 0 && r.right > window.innerWidth - 80
+          return r.top < 80 && r.top >= 0
+            && r.right > window.innerWidth - 100
             && r.width >= 28 && r.width <= 40;
-        });
-        if (svgAvatar) return svgAvatar;
-
-        // 폴백: img·button 등 (우측 끝 80px 이내)
-        return Array.from(document.querySelectorAll('img, button, a')).find(el => {
-          const r = el.getBoundingClientRect();
-          return r.top < 80 && r.top >= 0 && r.right > window.innerWidth - 80
-            && r.width > 8 && r.width < 80;
         });
       }
 
-      function positionBadge(name) {
-        const avatar = findAvatarEl();
+      function insertBadge(name) {
+        if (document.getElementById(BADGE_ID)) return true;
+
+        const avatar = findAvatarSvg();
         if (!avatar) return false;
 
-        const r = avatar.getBoundingClientRect();
-        userBadge.textContent = name;
-        userBadge.style.display = 'flex';
-        // 아바타 바로 아래에 배치
-        userBadge.style.top = (r.bottom + 6) + 'px';
-        userBadge.style.left = (r.left + r.width / 2) + 'px';
-        userBadge.style.transform = 'translateX(-50%)';
+        // 아바타를 감싸는 컨테이너 (button 또는 부모 div)
+        const container = avatar.closest('button') || avatar.parentElement;
+
+        const badge = document.createElement('span');
+        badge.id = BADGE_ID;
+        badge.textContent = name;
+        badge.style.cssText = `
+          display: block;
+          text-align: center;
+          font-size: 11px;
+          font-family: sans-serif;
+          white-space: nowrap;
+          color: #fff;
+          background: rgba(0,0,0,0.55);
+          padding: 2px 7px;
+          border-radius: 10px;
+          margin-top: 4px;
+          pointer-events: none;
+          line-height: 1.4;
+        `;
+
+        container.style.display = 'flex';
+        container.style.flexDirection = 'column';
+        container.style.alignItems = 'center';
+        container.appendChild(badge);
         return true;
       }
 
       function showUser() {
         const user = window.netlifyIdentity && window.netlifyIdentity.currentUser();
         const name = user ? (user.user_metadata?.full_name || user.email) : null;
-        if (!name) { userBadge.style.display = 'none'; return; }
 
-        if (positionBadge(name)) return;
+        const existing = document.getElementById(BADGE_ID);
+        if (!name) { if (existing) existing.remove(); return; }
+        if (existing) { existing.textContent = name; return; }
 
-        // CMS가 아직 렌더링 중이면 MutationObserver로 재시도
+        if (insertBadge(name)) return;
+
+        // CMS 렌더링 완료 전이면 MutationObserver로 재시도
         const observer = new MutationObserver(() => {
-          if (positionBadge(name)) observer.disconnect();
+          if (insertBadge(name)) observer.disconnect();
         });
         observer.observe(document.body, { childList: true, subtree: true });
-        // 최대 10초 대기 후 포기
         setTimeout(() => observer.disconnect(), 10000);
       }
 
