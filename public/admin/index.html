@@ -115,30 +115,54 @@
 
       CMS.init();
 
-      // 로그인된 사용자 이름 표시
-      const badge = document.createElement('div');
-      badge.style.cssText = `
-        position: fixed;
-        top: 12px;
-        right: 16px;
-        z-index: 99999;
-        background: rgba(0,0,0,0.55);
-        color: #fff;
-        font-size: 13px;
-        padding: 4px 12px;
-        border-radius: 20px;
-        pointer-events: none;
-        font-family: sans-serif;
-      `;
-      document.body.appendChild(badge);
+      // 아바타 옆에 사용자 이름 표시
+      let nameLabel = null;
+
+      function attachNameToAvatar(name) {
+        // 이미 붙어 있으면 텍스트만 업데이트
+        if (nameLabel) { nameLabel.textContent = name; return; }
+
+        // 화면 상단 우측 영역에서 아바타 img 탐색
+        const avatarImg = Array.from(document.querySelectorAll('img')).find(img => {
+          const r = img.getBoundingClientRect();
+          return r.top < 80 && r.right > window.innerWidth - 200 && r.width > 10;
+        });
+
+        if (!avatarImg) return; // 아직 렌더링 전 → 재시도
+
+        nameLabel = document.createElement('span');
+        nameLabel.textContent = name;
+        nameLabel.style.cssText = `
+          color: #fff;
+          font-size: 13px;
+          font-family: sans-serif;
+          white-space: nowrap;
+          margin-left: 8px;
+          line-height: 1;
+          pointer-events: none;
+        `;
+
+        // 아바타의 부모(버튼 등) 안에 인라인으로 삽입
+        const parent = avatarImg.parentElement;
+        parent.style.display = 'flex';
+        parent.style.alignItems = 'center';
+        parent.appendChild(nameLabel);
+      }
 
       function showUser() {
         const user = window.netlifyIdentity && window.netlifyIdentity.currentUser();
-        if (user) {
-          badge.textContent = user.user_metadata?.full_name || user.email;
-          badge.style.display = 'block';
-        } else {
-          badge.style.display = 'none';
+        const name = user ? (user.user_metadata?.full_name || user.email) : null;
+        if (!name) { if (nameLabel) nameLabel.textContent = ''; return; }
+
+        attachNameToAvatar(name);
+
+        // 아바타가 아직 없으면 DOM 변화 감지 후 재시도
+        if (!nameLabel) {
+          const observer = new MutationObserver(() => {
+            attachNameToAvatar(name);
+            if (nameLabel) observer.disconnect();
+          });
+          observer.observe(document.body, { childList: true, subtree: true });
         }
       }
 
