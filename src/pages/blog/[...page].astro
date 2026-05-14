@@ -18,15 +18,8 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 const { page } = Astro.props;
 const pageTitle = "생터 레터";
 
-const allPosts = await getCollection('blog');
-const latestDate = new Date(Math.max(...allPosts.map(p => new Date(p.data.pubDate).valueOf())));
-const oneMonthBeforeLatest = new Date(latestDate);
-oneMonthBeforeLatest.setMonth(oneMonthBeforeLatest.getMonth() - 1);
-
 const recentTags = [...new Set(
-  allPosts
-    .filter(post => new Date(post.data.pubDate) >= oneMonthBeforeLatest)
-    .flatMap(post => post.data.tags ?? [])
+  page.data.flatMap(post => post.data.tags ?? [])
 )];
 ---
 <BaseLayout pageTitle={pageTitle}>

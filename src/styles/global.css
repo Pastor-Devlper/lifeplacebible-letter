@@ -137,6 +137,12 @@ html.dark h2 {
   color: #f1f5f9;
 }
 
+iframe {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
 @media screen and (max-width: 635px) {
   h1 {
     font-size: 2rem;
