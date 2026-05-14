@@ -35,7 +35,7 @@ collections:
         time_format: false
         picker_utc: true
       - { label: "설명", name: description, widget: string }
-      - { label: "작성자", name: author, widget: string, default: "생터 미디어팀" }
+      - { label: "작성자", name: author, widget: string }
       - label: "대표 이미지"
         name: image
         widget: object

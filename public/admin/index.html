@@ -74,6 +74,42 @@
         window.netlifyIdentity.on('login', showUser);
         window.netlifyIdentity.on('logout', showUser);
       }
+
+      // 새 포스트 작성 시 작성자 필드에 계정 이름 자동 입력
+      let authorObserver = null;
+
+      function startAuthorFill() {
+        if (!location.hash.includes('/new')) return;
+
+        const user = window.netlifyIdentity?.currentUser();
+        if (!user) return;
+        const name = user.user_metadata?.full_name || user.email;
+
+        if (authorObserver) authorObserver.disconnect();
+
+        authorObserver = new MutationObserver(() => {
+          const label = Array.from(document.querySelectorAll('label')).find(
+            el => el.textContent.trim() === '작성자'
+          );
+          if (!label) return;
+
+          const input = (label.htmlFor && document.getElementById(label.htmlFor))
+            || label.closest('div')?.querySelector('input[type="text"]');
+          if (!input || input.value) return;
+
+          const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set;
+          setter.call(input, name);
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+
+          authorObserver.disconnect();
+          authorObserver = null;
+        });
+
+        authorObserver.observe(document.body, { childList: true, subtree: true });
+        setTimeout(() => { if (authorObserver) { authorObserver.disconnect(); authorObserver = null; } }, 5000);
+      }
+
+      window.addEventListener('hashchange', startAuthorFill);
     </script>
   </body>
 </html>
