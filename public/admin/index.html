@@ -11,6 +11,21 @@
     <script src="https://media-library.cloudinary.com/global/all.js"></script>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
+      // 저장 시 작성자 필드가 비어있으면 계정 이름으로 채움
+      CMS.registerEventListener({
+        name: 'preSave',
+        handler: ({ entry }) => {
+          const user = window.netlifyIdentity?.currentUser();
+          if (!user) return;
+          const name = user.user_metadata?.full_name || user.email;
+          try {
+            if (!entry.getIn(['data', 'author'])) {
+              return entry.setIn(['data', 'author'], name);
+            }
+          } catch (e) {}
+        }
+      });
+
       CMS.init();
 
       // '빠른 추가'와 아바타 사이에 사용자 이름을 DOM으로 삽입
@@ -76,40 +91,44 @@
       }
 
       // 새 포스트 작성 시 작성자 필드에 계정 이름 자동 입력
-      let authorObserver = null;
-
-      function startAuthorFill() {
-        if (!location.hash.includes('/new')) return;
+      function tryFillAuthor() {
+        if (!location.hash.includes('/new')) return false;
 
         const user = window.netlifyIdentity?.currentUser();
-        if (!user) return;
+        if (!user) return false;
         const name = user.user_metadata?.full_name || user.email;
 
-        if (authorObserver) authorObserver.disconnect();
+        // label·span 모두에서 "작성자" 텍스트 탐색
+        const authorLabel = Array.from(document.querySelectorAll('label, span')).find(
+          el => el.children.length === 0 && el.textContent.trim() === '작성자'
+        );
+        if (!authorLabel) return false;
 
-        authorObserver = new MutationObserver(() => {
-          const label = Array.from(document.querySelectorAll('label')).find(
-            el => el.textContent.trim() === '작성자'
-          );
-          if (!label) return;
-
-          const input = (label.htmlFor && document.getElementById(label.htmlFor))
-            || label.closest('div')?.querySelector('input[type="text"]');
-          if (!input || input.value) return;
-
-          const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set;
-          setter.call(input, name);
-          input.dispatchEvent(new Event('input', { bubbles: true }));
-
-          authorObserver.disconnect();
-          authorObserver = null;
-        });
-
-        authorObserver.observe(document.body, { childList: true, subtree: true });
-        setTimeout(() => { if (authorObserver) { authorObserver.disconnect(); authorObserver = null; } }, 5000);
+        // 상위 컨테이너를 최대 6단계 올라가며 input 탐색
+        let container = authorLabel;
+        for (let i = 0; i < 6; i++) {
+          container = container.parentElement;
+          if (!container) break;
+          const input = container.querySelector('input[type="text"]');
+          if (input) {
+            if (input.value) return true; // 이미 값 있으면 유지
+            const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set;
+            setter.call(input, name);
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+            return true;
+          }
+        }
+        return false;
       }
 
-      window.addEventListener('hashchange', startAuthorFill);
+      function scheduleAuthorFill() {
+        let tries = 0;
+        const timer = setInterval(() => {
+          if (tryFillAuthor() || ++tries > 20) clearInterval(timer);
+        }, 250);
+      }
+
+      window.addEventListener('hashchange', scheduleAuthorFill);
     </script>
   </body>
 </html>
