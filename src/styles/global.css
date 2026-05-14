@@ -137,7 +137,8 @@ html.dark h2 {
   color: #f1f5f9;
 }
 
-iframe {
+iframe,
+video {
   display: block;
   margin: 0 auto;
   max-width: 100%;
