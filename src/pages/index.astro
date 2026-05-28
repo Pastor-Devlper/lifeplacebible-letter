@@ -7,7 +7,7 @@ const pageTitle = "생터성경사역원 소식";
 const posts = await getCollection('blog');
 const recentPosts = posts
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
-  .slice(0, 6);
+  .slice(0, 4);
 ---
 
 <BaseLayout pageTitle={pageTitle} showTitle={false} fullWidth={true}>
@@ -50,7 +50,7 @@ const recentPosts = posts
 <style>
   .hero {
     background-color: #f8f9fa;
-    padding: 80px 80px;
+    padding: 40px 40px;
     display: flex;
     justify-content: center;
   }
@@ -85,8 +85,8 @@ const recentPosts = posts
   }
 
   .hero-divider {
-    width: 48px;
-    height: 3px;
+    width: 150px;
+    height: 2px;
     background-color: #ff9776;
     border-radius: 2px;
   }
@@ -99,7 +99,7 @@ const recentPosts = posts
   }
 
   .posts-section {
-    padding: 64px 80px 80px;
+    padding: 32px 40px 40px;
     background-color: #ffffff;
   }
 
@@ -205,11 +205,15 @@ const recentPosts = posts
 
   @media screen and (max-width: 768px) {
     .hero {
-      padding: 48px 1.5rem;
+      padding: 24px 1rem;
     }
 
     .hero-title {
       font-size: 2rem;
+    }
+
+    .hero-sub {
+      word-break: keep-all;
     }
 
     .posts-section {

@@ -444,7 +444,7 @@ video {
 .tags-hero,
 .tag-detail-hero {
   background-color: #f8f9fa;
-  padding: 64px 80px;
+  padding: 32px 40px;
   display: flex;
   justify-content: center;
 }
@@ -562,7 +562,7 @@ video {
 @media screen and (max-width: 768px) {
   .tags-hero,
   .tag-detail-hero {
-    padding: 48px 1.5rem;
+    padding: 24px 1rem;
   }
 
   .tags-title,
@@ -579,7 +579,7 @@ video {
 /* ── About 페이지 ── */
 .about-hero {
   background-color: #f8f9fa;
-  padding: 64px 80px;
+  padding: 32px 40px;
   display: flex;
   justify-content: center;
 }
@@ -622,7 +622,7 @@ video {
 
 .about-section {
   background-color: #ffffff;
-  padding: 64px 80px 80px;
+  padding: 32px 40px 40px;
 }
 
 .about-content {
@@ -683,7 +683,7 @@ video {
 
 @media screen and (max-width: 768px) {
   .about-hero {
-    padding: 48px 1.5rem;
+    padding: 24px 1rem;
   }
 
   .about-title {
@@ -691,7 +691,7 @@ video {
   }
 
   .about-section {
-    padding: 40px 1.5rem 56px;
+    padding: 20px 1.5rem 56px;
   }
 
   .ministry-grid {
@@ -795,12 +795,6 @@ a.card:hover .card-image img {
 }
 
 /* ── 블로그 목록 페이지 ── */
-.blog-hero {
-  background-color: #f8f9fa;
-  padding: 64px 80px;
-  display: flex;
-  justify-content: center;
-}
 
 .blog-hero-inner {
   display: flex;
@@ -927,10 +921,6 @@ a.card:hover .card-image img {
 }
 
 @media screen and (max-width: 768px) {
-  .blog-hero {
-    padding: 48px 1.5rem;
-  }
-
   .blog-title {
     font-size: 1.875rem;
   }
