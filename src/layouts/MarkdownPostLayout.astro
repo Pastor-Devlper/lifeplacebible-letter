@@ -138,9 +138,20 @@ const pubDate = new Date(frontmatter.pubDate).toLocaleDateString('ko-KR', {
     });
   }
 
+  function wrapIframes() {
+    document.querySelectorAll('.post-content iframe').forEach((iframe) => {
+      if (iframe.parentElement?.classList.contains('iframe-wrapper')) return;
+      const wrapper = document.createElement('div');
+      wrapper.className = 'iframe-wrapper';
+      iframe.parentNode!.insertBefore(wrapper, iframe);
+      wrapper.appendChild(iframe);
+    });
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupLightbox);
+    document.addEventListener('DOMContentLoaded', () => { setupLightbox(); wrapIframes(); });
   } else {
     setupLightbox();
+    wrapIframes();
   }
 </script>
