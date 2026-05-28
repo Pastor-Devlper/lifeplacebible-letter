@@ -169,12 +169,12 @@ h2 {
 }
 
 
-/*iframe,
+iframe,
 video {
   display: block;
   margin: 0 auto;
   max-width: 100%;
-}*/
+}
 
 /* ── 개별 포스트 페이지 ── */
 .post-header {
@@ -276,6 +276,15 @@ video {
   border-radius: 8px;
   cursor: pointer;
   transition: opacity 0.2s ease;
+}
+
+.post-content iframe {
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  border: none;
+  margin: 1rem auto;
 }
 
 .post-content img:hover {
