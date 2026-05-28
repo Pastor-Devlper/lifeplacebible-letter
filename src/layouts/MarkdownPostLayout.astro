@@ -1,16 +1,61 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
+const pubDate = new Date(frontmatter.pubDate).toLocaleDateString('ko-KR', {
+  year: 'numeric', month: 'long', day: 'numeric'
+});
 ---
-<BaseLayout pageTitle={frontmatter.title}>
-  <p>{frontmatter.pubDate.toLocaleDateString()}</p>
-  <p><em>{frontmatter.description}</em></p>
+<BaseLayout pageTitle={frontmatter.title} showTitle={false} fullWidth={true}>
 
-  <p>Written by: {frontmatter.author}</p>
-  
-  <img src={frontmatter.image.url} width="500" alt={frontmatter.image.alt} class="post-image no-lightbox" />
+  <article class="post-article">
+    <!-- 포스트 헤더 -->
+    <header class="post-header">
+      <div class="post-header-inner">
+        <div class="post-meta-top">
+          {frontmatter.tags?.map((tag: string) => (
+            <a href={`/tags/${tag}`} class="post-tag-pill">{tag}</a>
+          ))}
+        </div>
+        <h1 class="post-title">{frontmatter.title}</h1>
+        {frontmatter.description && (
+          <p class="post-description">{frontmatter.description}</p>
+        )}
+        <div class="post-meta-bottom">
+          <span class="post-author">{frontmatter.author}</span>
+          <span class="post-meta-sep">·</span>
+          <span class="post-date">{pubDate}</span>
+        </div>
+      </div>
+    </header>
 
-  <slot />
+    <!-- 커버 이미지 -->
+    {frontmatter.image?.url && (
+      <div class="post-cover">
+        <img
+          src={frontmatter.image.url}
+          alt={frontmatter.image.alt}
+          class="post-cover-img no-lightbox"
+        />
+      </div>
+    )}
+
+    <!-- 본문 -->
+    <div class="post-body">
+      <div class="post-content">
+        <slot />
+      </div>
+
+      <!-- 태그 -->
+      <div class="post-footer">
+        <div class="post-footer-tags">
+          {frontmatter.tags?.map((tag: string) => (
+            <a href={`/tags/${tag}`} class="tag-pill">{tag}</a>
+          ))}
+        </div>
+        <a href="/blog/" class="post-back">← 목록으로</a>
+      </div>
+    </div>
+  </article>
 
   <!-- 라이트박스 모달 -->
   <div id="lightbox" class="lightbox">
@@ -21,174 +66,7 @@ const { frontmatter } = Astro.props;
     <span class="lightbox-counter"></span>
   </div>
 
-  <div class="tags">
-    {frontmatter.tags.map((tag: string) => (
-    <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
-    ))}
-  </div>
-
 </BaseLayout>
-<style>
-  a {
-    color: #00539F;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: .5em;
-    padding: .5em 1em;
-    font-size: 1.15em;
-    background-color: #F8FCFD;
-  }
-
-  .post-image {
-    width: 500px;
-    height: auto;
-  }
-
-  .clickable-image {
-    cursor: pointer;
-    transition: opacity 0.2s ease;
-  }
-
-  .clickable-image:hover {
-    opacity: 0.8;
-  }
-
-  /* 마크다운 콘텐츠 내의 모든 이미지 */
-  :global(img) {
-    max-width: 100%;
-    height: auto;
-  }
-
-  :global(.markdown-image) {
-    cursor: pointer;
-    transition: opacity 0.2s ease;
-  }
-
-  :global(.markdown-image:hover) {
-    opacity: 0.8;
-  }
-
-  /* 라이트박스 스타일 */
-  .lightbox {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    animation: fadeIn 0.3s ease;
-  }
-
-  .lightbox.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .lightbox-content {
-    max-width: 90%;
-    max-height: 90vh;
-    object-fit: contain;
-    animation: zoomIn 0.3s ease;
-  }
-
-  .lightbox-close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.2s ease;
-  }
-
-  .lightbox-close:hover {
-    color: #bbb;
-  }
-
-  .lightbox-content:hover {
-    opacity: 1;
-  }
-
-  .lightbox-prev,
-  .lightbox-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.15);
-    border: none;
-    color: white;
-    font-size: 2rem;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background 0.2s ease;
-    z-index: 1001;
-  }
-
-  .lightbox-prev { left: 20px; }
-  .lightbox-next { right: 20px; }
-
-  .lightbox-prev:hover,
-  .lightbox-next:hover {
-    background: rgba(255, 255, 255, 0.35);
-  }
-
-  .lightbox-prev:disabled,
-  .lightbox-next:disabled {
-    opacity: 0.2;
-    cursor: default;
-  }
-
-  .lightbox-counter {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 1rem;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 4px 12px;
-    border-radius: 20px;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes zoomIn {
-    from {
-      transform: scale(0.8);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    .post-image {
-      width: 100%;
-    }
-  }
-</style>
 
 <script>
   function setupLightbox() {
@@ -233,23 +111,16 @@ const { frontmatter } = Astro.props;
       if (counter) counter.textContent = `${currentIndex + 1} / ${images.length}`;
       if (prevBtn) prevBtn.disabled = currentIndex === 0;
       if (nextBtn) nextBtn.disabled = currentIndex === images.length - 1;
-
       const isOnly = images.length <= 1;
       if (prevBtn) prevBtn.style.display = isOnly ? 'none' : '';
       if (nextBtn) nextBtn.style.display = isOnly ? 'none' : '';
       if (counter) counter.style.display = isOnly ? 'none' : '';
     }
 
-    function showPrev() {
-      if (currentIndex > 0) openLightbox(currentIndex - 1);
-    }
-
-    function showNext() {
-      if (currentIndex < images.length - 1) openLightbox(currentIndex + 1);
-    }
+    function showPrev() { if (currentIndex > 0) openLightbox(currentIndex - 1); }
+    function showNext() { if (currentIndex < images.length - 1) openLightbox(currentIndex + 1); }
 
     collectImages();
-
     images.forEach((img, i) => {
       img.style.cursor = 'pointer';
       img.addEventListener('click', () => openLightbox(i));
@@ -258,11 +129,7 @@ const { frontmatter } = Astro.props;
     lightboxClose?.addEventListener('click', closeLightbox);
     prevBtn?.addEventListener('click', (e) => { e.stopPropagation(); showPrev(); });
     nextBtn?.addEventListener('click', (e) => { e.stopPropagation(); showNext(); });
-
-    lightbox?.addEventListener('click', (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
-
+    lightbox?.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
     document.addEventListener('keydown', (e) => {
       if (!lightbox?.classList.contains('active')) return;
       if (e.key === 'Escape') closeLightbox();

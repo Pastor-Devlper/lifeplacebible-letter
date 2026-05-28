@@ -4,54 +4,43 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogPost from '../../components/BlogPost.astro';
 
 export async function getStaticPaths() {
-    const allPosts = await getCollection('blog');
-    const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+  const allPosts = await getCollection('blog');
+  const uniqueTags = [...new Set(allPosts.flatMap(post => post.data.tags ?? []))];
 
   return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter((post) => post.data.tags.includes(tag));
-    return {
-      params: { tag },
-      props: { posts: filteredPosts },
-    };
+    const filteredPosts = allPosts
+      .filter(post => post.data.tags?.includes(tag))
+      .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
+    return { params: { tag }, props: { posts: filteredPosts } };
   });
 }
 
 const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
-<BaseLayout pageTitle={tag}>
-  <p>Posts tagged with {tag}</p>
-  <ul class="posts-grid">
-    {posts.map((post) => (
-      <BlogPost
-        url={`/posts/${post.id}`}
-        title={post.data.title}
-        image={post.data.image}
-        pubDate={post.data.pubDate}
-      />
-    ))}
-  </ul>
+
+<BaseLayout pageTitle={tag} showTitle={false} fullWidth={true}>
+  <section class="tag-detail-hero">
+    <div class="tag-detail-hero-inner">
+      <a href="/tags/" class="tag-back">← 전체 태그</a>
+      <h1 class="tag-detail-title">{tag}</h1>
+      <div class="tag-detail-divider"></div>
+      <p class="tag-detail-count">포스트 {posts.length}개</p>
+    </div>
+  </section>
+
+  <section class="tag-detail-section">
+    <ul class="posts-grid">
+      {posts.map((post) => (
+        <BlogPost
+          url={`/posts/${post.id}`}
+          title={post.data.title}
+          image={post.data.image}
+          pubDate={post.data.pubDate}
+          description={post.data.description}
+          tags={post.data.tags}
+        />
+      ))}
+    </ul>
+  </section>
 </BaseLayout>
-
-<style>
-  .posts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 280px));
-    gap: 1.5rem;
-    padding: 0;
-    margin: 2rem 0 0;
-    list-style: none;
-    justify-content: center;
-  }
-
-  .posts-grid li {
-    list-style: none;
-  }
-
-  @media screen and (max-width: 768px) {
-    .posts-grid {
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      justify-content: center;
-    }
-  }
-</style>

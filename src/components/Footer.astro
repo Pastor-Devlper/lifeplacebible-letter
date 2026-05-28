@@ -1,65 +1,159 @@
 ---
-import Social from './Social.astro';
 ---
 
-<style>
-  footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .social-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem 1rem;
-    color: white;
-    background-color: #4c1d95;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease;
-  }
-
-  .contact-info ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-  }
-
-  .contact-info li {
-    margin-bottom: 0;
-  }
-
-  .copyright {
-    margin-top: 0;
-    font-size: 0.8rem;
-    color: #888;
-  }
-</style>
-
 <footer>
-  <div class="social-links">
-    <a href="https://info.ahaja.org" target="_blank" rel="noopener noreferrer" class="social-button" aria-label="생터성경사역원">
-      생터홈페이지
-    </a>
-    <a href="https://www.instagram.com/ahaja_official" target="_blank" rel="noopener noreferrer" class="social-button" aria-label="instagram">
-      Instagram
-    </a>
-    <a href="https://www.youtube.com/@%EC%83%9D%ED%84%B0%EC%84%B1%EA%B2%BD%EC%82%AC%EC%97%AD%EC%9B%90" target="_blank" rel="noopener noreferrer" class="social-button" aria-label="youtube">
-      YouTube
-    </a>
-  </div>
-  <div class="contact-info">
-    <ul>
-      <li>생터성경사역원 미디어팀</li>
-      <li>전화: 043-236-3927 (내선 2)</li>
-      <li>주소: 충북 청주시 흥덕구 오송읍 연제1길25</li>
-      <li class="copyright">Copyright &copy; Life Place Bible Ministries. All Rights Reserved.</li>
-    </ul>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo">생터</span>
+        <span class="footer-logo-divider">|</span>
+        <span class="footer-logo-sub">LETTERS 2026</span>
+      </div>
+      <div class="footer-socials">
+        <a href="https://info.ahaja.org" target="_blank" rel="noopener noreferrer">생터홈페이지</a>
+        <a href="https://www.instagram.com/ahaja_official" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.youtube.com/@%EC%83%9D%ED%84%B0%EC%84%B1%EA%B2%BD%EC%82%AC%EC%97%AD%EC%9B%90" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p class="footer-info">
+        생터성경사역원 미디어팀
+        <span class="footer-sep">|</span>
+        043-236-3927 (내선 2)<br />
+        <span class="footer-sep">|</span>
+        충북 청주시 흥덕구 오송읍 연제1길25
+      </p>
+      <p class="footer-copy">© 2026 Life Place Bible Ministries. All Rights Reserved.</p>
+    </div>
   </div>
 </footer>
+
+<style>
+  .footer-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 56px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .footer-logo {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #ffffff;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  .footer-logo-divider {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.25);
+  }
+
+  .footer-logo-sub {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-socials {
+    display: flex;
+    gap: 12px;
+  }
+
+  .footer-socials a {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.65) !important;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .footer-socials a:hover {
+    background: rgba(255, 255, 255, 0.14);
+    color: #ff9776 !important;
+  }
+
+  .footer-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-info br {
+    display: none;
+  }
+
+  .footer-info {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.45) !important;
+  }
+
+  .footer-sep {
+    margin: 0 8px;
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  .footer-copy {
+    margin: 0;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.28) !important;
+  }
+
+  @media screen and (max-width: 768px) {
+    .footer-inner {
+      padding: 40px 1.5rem;
+      gap: 24px;
+    }
+
+    .footer-top {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      justify-content: center;
+    }
+
+    .footer-socials {
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer-bottom {
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-info br {
+      display: block;
+    }
+  }
+</style>

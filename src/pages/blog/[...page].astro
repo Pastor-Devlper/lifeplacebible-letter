@@ -18,76 +18,132 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 const { page } = Astro.props;
 const pageTitle = "생터 레터";
 
-const recentTags = [...new Set(
+const allTags = [...new Set(
   page.data.flatMap(post => post.data.tags ?? [])
 )];
 ---
-<BaseLayout pageTitle={pageTitle}>
-  <h2>생터의 소식을 전해드립니다!</h2>
 
-  {recentTags.length > 0 && (
-    <div class="recent-tags">
-      {recentTags.map(tag => (
-        <a href={`/tags/${tag}`} class="tag-pill">{tag}</a>
-      ))}
+<BaseLayout pageTitle={pageTitle} showTitle={false} fullWidth={true}>
+  <section class="blog-hero">
+    <div class="blog-hero-inner">
+      <span class="blog-tag">생터 레터</span>
+      <h1 class="blog-title">생터의 소식을<br />전해드립니다</h1>
+      <div class="blog-divider"></div>
     </div>
-  )}
+  </section>
 
-  <ul class="posts-grid">
-    {page.data.map((post) => (
-      <BlogPost
-        url={`/posts/${post.id}`}
-        title={post.data.title}
-        image={post.data.image}
-        pubDate={post.data.pubDate}
-      />
-    ))}
-  </ul>
+  <section class="blog-section">
+    {allTags.length > 0 && (
+      <div class="tag-row">
+        {allTags.map(tag => (
+          <a href={`/tags/${tag}`} class="tag-pill">{tag}</a>
+        ))}
+      </div>
+    )}
 
-  {page.lastPage > 1 && (
-    <nav class="pagination" aria-label="페이지 이동">
-      {page.url.prev
-        ? <a href={page.url.prev} class="page-btn" aria-label="이전 페이지">&#8249;</a>
-        : <span class="page-btn disabled" aria-hidden="true">&#8249;</span>
-      }
-
-      {Array.from({ length: page.lastPage }, (_, i) => i + 1).map((num) => (
-        <a
-          href={num === 1 ? '/blog/' : `/blog/${num}`}
-          class={`page-num ${num === page.currentPage ? 'active' : ''}`}
-        >
-          {num}
-        </a>
+    <ul class="posts-grid">
+      {page.data.map((post) => (
+        <BlogPost
+          url={`/posts/${post.id}`}
+          title={post.data.title}
+          image={post.data.image}
+          pubDate={post.data.pubDate}
+          description={post.data.description}
+          tags={post.data.tags}
+        />
       ))}
+    </ul>
 
-      {page.url.next
-        ? <a href={page.url.next} class="page-btn" aria-label="다음 페이지">&#8250;</a>
-        : <span class="page-btn disabled" aria-hidden="true">&#8250;</span>
-      }
-    </nav>
-  )}
+    {page.lastPage > 1 && (
+      <nav class="pagination" aria-label="페이지 이동">
+        {page.url.prev
+          ? <a href={page.url.prev} class="page-btn" aria-label="이전 페이지">&#8249;</a>
+          : <span class="page-btn disabled">&#8249;</span>
+        }
+        {Array.from({ length: page.lastPage }, (_, i) => i + 1).map((num) => (
+          <a
+            href={num === 1 ? '/blog/' : `/blog/${num}`}
+            class={`page-num ${num === page.currentPage ? 'active' : ''}`}
+          >
+            {num}
+          </a>
+        ))}
+        {page.url.next
+          ? <a href={page.url.next} class="page-btn" aria-label="다음 페이지">&#8250;</a>
+          : <span class="page-btn disabled">&#8250;</span>
+        }
+      </nav>
+    )}
+  </section>
 </BaseLayout>
 
 <style>
-  .recent-tags {
+  /* ── 히어로 ── */
+  .blog-hero {
+    background-color: #f8f9fa;
+    padding: 64px 80px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .blog-hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    max-width: 760px;
+    text-align: center;
+  }
+
+  .blog-tag {
+    display: inline-block;
+    background-color: #fff4f0;
+    color: #ff9776;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 100px;
+  }
+
+  .blog-title {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #1a1a2e;
+    font-family: 'Gowun Dodum', sans-serif;
+  }
+
+  .blog-divider {
+    width: 40px;
+    height: 3px;
+    background-color: #ff9776;
+    border-radius: 2px;
+  }
+
+  /* ── 본문 ── */
+  .blog-section {
+    background-color: #ffffff;
+    padding: 56px 80px 80px;
+  }
+
+  .tag-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 1rem 0 0;
-    justify-content: center;
+    gap: 8px;
+    margin-bottom: 36px;
   }
 
   .tag-pill {
     display: inline-block;
-    padding: 0.3rem 0.8rem;
-    font-size: 0.85rem;
-    font-weight: 500;
+    padding: 5px 14px;
+    font-size: 0.8125rem;
+    font-weight: 600;
     color: #0d0950;
-    background-color: #eef2ff;
-    border-radius: 2rem;
+    background-color: #eef0ff;
+    border-radius: 100px;
     text-decoration: none;
-    transition: background-color 0.15s ease, color 0.15s ease;
-    outline: gray 1px solid;
+    transition: background-color 0.15s, color 0.15s;
   }
 
   .tag-pill:hover {
@@ -98,28 +154,19 @@ const recentTags = [...new Set(
   .posts-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 24px;
     padding: 0;
-    margin: 2rem 0 0;
+    margin: 0;
     list-style: none;
   }
 
-  @media screen and (max-width: 768px) {
-    .posts-grid {
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    }
-
-    .posts-grid li:nth-child(n+7) {
-      display: none;
-    }
-  }
-
+  /* ── 페이지네이션 ── */
   .pagination {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 3rem 0 2rem;
-    line-height: 1;
+    gap: 4px;
+    margin-top: 56px;
   }
 
   .page-btn,
@@ -127,58 +174,65 @@ const recentTags = [...new Set(
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
-    margin: 0 3px;
-    font-size: 14px;
-    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
     text-decoration: none;
-    box-sizing: border-box;
-    border: none;
-    background: none;
-    transition: background-color 0.15s ease;
+    transition: background-color 0.15s, color 0.15s;
   }
 
   .page-btn {
-    font-size: 20px;
-    color: #555;
+    font-size: 1.25rem;
+    color: #9ca3af;
   }
 
   .page-btn:hover {
-    background: none;
-    color: #222;
+    background: #f3f4f6;
+    color: #374151;
   }
 
   .page-btn.disabled {
-    color: #ccc;
-    cursor: not-allowed;
+    color: #d1d5db;
     pointer-events: none;
   }
 
   .page-num {
-    color: #212121;
-    font-weight: 500;
+    color: #374151;
   }
 
   .page-num:hover {
-    background-color: rgba(0, 83, 159, 0.1);
+    background: #f3f4f6;
   }
 
   .page-num.active {
-    background-color: #00539F;
+    background-color: #0d0950;
     color: #ffffff;
   }
 
-  p {
-    margin: 0.5rem 0;
-    font-size: 0.9rem;
-    color: #555;
-    text-align: center;
+  /* ── 반응형 ── */
+  @media screen and (max-width: 1024px) {
+    .posts-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   @media screen and (max-width: 768px) {
-    p {
-      font-size: 0.85rem;
+    .blog-hero {
+      padding: 48px 1.5rem;
+    }
+
+    .blog-title {
+      font-size: 1.875rem;
+    }
+
+    .blog-section {
+      padding: 40px 1.5rem 56px;
+    }
+
+    .posts-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

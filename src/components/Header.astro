@@ -1,27 +1,60 @@
 ---
 import Navigation from "./navigation.astro"
 import Menu from "./Menu.astro"
-import ThemeIcon from "./ThemeIcon.astro"
 ---
 <header>
-    <nav>
-        <ThemeIcon />
-        <div>
-            <Navigation />
-            <Menu />
-        </div>
-    </nav>
+  <nav>
+    <a href="/" class="logo" aria-label="생터 홈">
+      <img src="/logo01.png" alt="생터" class="logo-img no-lightbox" />
+    </a>
+    <div class="nav-right">
+      <Navigation />
+      <Menu />
+    </div>
+  </nav>
 </header>
 
 <style>
+  header {
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
   nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 2rem;
+    padding: 0 80px;
+    height: 72px;
+    max-width: 1440px;
+    margin: 0 auto;
   }
-  div {
+
+  .logo {
     display: flex;
     align-items: center;
+    gap: 6px;
+    text-decoration: none;
+  }
+
+  .logo-img {
+    height: 36px;
+    width: auto;
+    display: block;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  @media screen and (max-width: 768px) {
+    nav {
+      padding: 0 1.5rem;
+    }
   }
 </style>

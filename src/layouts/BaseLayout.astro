@@ -3,7 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
-const { pageTitle } = Astro.props;
+const { pageTitle, showTitle = true, fullWidth = false } = Astro.props;
 ---
 
 <html lang="ko">
@@ -19,14 +19,22 @@ const { pageTitle } = Astro.props;
   </head>
   <body>
     <Header />
-      <h1 class="page-title">
-        <span class="title-logo-wrapper">
-          <img src="/logo01.png" alt="생터 로고" class="title-logo no-lightbox" />
-        </span>
-        <span class="title-text">{pageTitle}</span>
-      </h1>
+    {fullWidth ? (
       <slot />
-      <Footer />
+    ) : (
+      <div class="page-content">
+        {showTitle && (
+          <h1 class="page-title">
+            <span class="title-logo-wrapper">
+              <img src="/logo01.png" alt="생터 로고" class="title-logo no-lightbox" />
+            </span>
+            <span class="title-text">{pageTitle}</span>
+          </h1>
+        )}
+        <slot />
+      </div>
+    )}
+    <Footer />
       <script>
         import "../scripts/menu.js";
       </script>

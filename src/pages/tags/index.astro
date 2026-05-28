@@ -3,32 +3,30 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const allPosts = await getCollection('blog');
-const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
-const pageTitle = "Tag Index";
+const tagMap = new Map<string, number>();
+allPosts.flatMap(post => post.data.tags ?? []).forEach(tag => {
+  tagMap.set(tag, (tagMap.get(tag) ?? 0) + 1);
+});
+const tags = [...tagMap.entries()].sort((a, b) => b[1] - a[1]);
 ---
-<BaseLayout pageTitle={pageTitle}>
-    <div class="tags">
-        {tags.map((tag) => (
-        <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
-        ))}
+
+<BaseLayout pageTitle="태그" showTitle={false} fullWidth={true}>
+  <section class="tags-hero">
+    <div class="tags-hero-inner">
+      <span class="tags-badge">태그</span>
+      <h1 class="tags-title">주제별로 찾아보기</h1>
+      <div class="tags-divider"></div>
     </div>
+  </section>
+
+  <section class="tags-section">
+    <div class="tags-grid">
+      {tags.map(([tag, count]) => (
+        <a href={`/tags/${tag}`} class="tag-card">
+          <span class="tag-card-name">{tag}</span>
+          <span class="tag-card-count">{count}개</span>
+        </a>
+      ))}
+    </div>
+  </section>
 </BaseLayout>
-<style>
-  a {
-    color: #00539F;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: .5em;
-    padding: .5em 1em;
-    font-size: 1.15em;
-    background-color: #F8FCFD;
-  }
-</style>

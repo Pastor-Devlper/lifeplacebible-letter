@@ -1,70 +1,61 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const pageTitle = "생터성경사역원은";
-const skills = ["지부운영국: 국내사역", "SI국: 해외사역", "출판국: 교재, PPT", "다음세대: KIDS, YRG, 펄", "군사역본부", "총무국"];
+const pageTitle = "소개";
 
-const happy = true;
-const finished = true;
-
-const skillColor = "crimson";
-const fontWeight = "bold";
-const textCase = "uppercase";
+const ministries = [
+  { name: "지부운영국", desc: "국내사역" },
+  { name: "SI국", desc: "해외사역" },
+  { name: "출판국", desc: "교재, PPT" },
+  { name: "다음세대", desc: "KIDS, YRG, 펄" },
+  { name: "군사역본부", desc: "군 선교사역" },
+  { name: "총무국", desc: "행정지원" },
+];
 ---
-<BaseLayout pageTitle={pageTitle}>
-    <style is:global define:vars={{skillColor, fontWeight, textCase}}>
-        h1 {
-            color: purple;
-            font-size: 4rem;
-            }
-        .skill {
-            color: var(--skillColor);
-            font-weight: var(--fontWeight);
-            text-transform: var(--textCase);
-            }
-    </style>
-    <div class="about-content">
-        <h2>막힌 곳을 뚫어주는 '어? 성경이 읽어지네' 기반의 성경교육기관</h2>
 
-        <p>누구나 성경을 입체적으로 읽을 수 있도록 도와주는 전문강사를 양성하고 있으며,</p>
-
-        <p>전문강사는 1단계 성경일독학교(성경방), 2단계 인도자 컨퍼런스의 과정을 수료한 후</p>
-
-        {happy && <p>마지막 단계인 '전문강사스쿨'이라고 하는 6개월간의 정규과정을 거쳐서 세워지게 됩니다.</p>}
-
-        {finished && <p>그 외의 여러가지 사역을 동반하고 있습니다.</p>}
-
-        <p>세부 사역들은 다음과 같습니다.</p>
-            <ul>
-            {skills.map((skill) => <li class="skill">{skill}</li>)}
-            </ul>
-
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/adsysdKsbeo?si=1MiegiC04E5vlkey" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<BaseLayout pageTitle={pageTitle} showTitle={false} fullWidth={true}>
+  <section class="about-hero">
+    <div class="about-hero-inner">
+      <span class="about-tag">생터성경사역원</span>
+      <h1 class="about-title">막힌 곳을 뚫어주는<br />성경교육기관</h1>
+      <div class="about-divider"></div>
     </div>
+  </section>
 
-    <style>
-        .about-content {
-            max-width: 80ch;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
+  <section class="about-section">
+    <div class="about-content">
 
-        .about-content iframe {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 16/9;
-            margin: 2rem auto;
-            display: block;
-        }
+      <div class="about-text">
+        <p>
+          <strong>생터성경사역원</strong>은 누구나 성경을 입체적으로 읽을 수 있도록 돕는
+          전문강사를 양성하는 성경교육기관입니다.
+        </p>
+        <p>
+          '어? 성경이 읽어지네' 기반의 교육 과정을 통해 전문강사는
+          1단계 성경일독학교, 2단계 인도자 컨퍼런스를 수료한 후,
+          마지막 단계인 <strong>전문강사스쿨</strong>(6개월 정규과정)을 거쳐 세워집니다.
+        </p>
+      </div>
 
-        @media screen and (max-width: 768px) {
-            .about-content {
-                padding: 0 0.5rem;
-            }
+      <div class="ministry-grid">
+        {ministries.map((m) => (
+          <div class="ministry-card">
+            <span class="ministry-name">{m.name}</span>
+            <span class="ministry-desc">{m.desc}</span>
+          </div>
+        ))}
+      </div>
 
-            .about-content iframe {
-                max-width: 100%;
-            }
-        }
-    </style>
+      <div class="about-video">
+        <iframe
+          src="https://www.youtube.com/embed/adsysdKsbeo?si=1MiegiC04E5vlkey"
+          title="생터성경사역원 소개"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+    </div>
+  </section>
 </BaseLayout>
