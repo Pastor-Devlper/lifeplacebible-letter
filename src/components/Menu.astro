@@ -1,5 +1,26 @@
 ---
 ---
-<button aria-expanded="false" aria-controls="main-menu" class="menu">
-  Menu
+<button id="hamburger" class="hamburger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="main-menu">
+  <span></span>
+  <span></span>
+  <span></span>
 </button>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+
+  hamburger?.addEventListener('click', () => {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', String(!expanded));
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!hamburger?.contains(e.target as Node) && !(e.target as Element)?.closest('#main-menu')) {
+      hamburger?.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') hamburger?.setAttribute('aria-expanded', 'false');
+  });
+</script>
