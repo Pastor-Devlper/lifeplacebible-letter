@@ -138,20 +138,44 @@ const pubDate = new Date(frontmatter.pubDate).toLocaleDateString('ko-KR', {
     });
   }
 
-  function wrapIframes() {
-    document.querySelectorAll('.post-content iframe').forEach((iframe) => {
-      if (iframe.parentElement?.classList.contains('iframe-wrapper')) return;
-      const wrapper = document.createElement('div');
-      wrapper.className = 'iframe-wrapper';
-      iframe.parentNode!.insertBefore(wrapper, iframe);
-      wrapper.appendChild(iframe);
-    });
+  function scaleIframes() {
+    const iframes = Array.from(
+      document.querySelectorAll('.post-content iframe')
+    ) as HTMLIFrameElement[];
+
+    function applyScale() {
+      iframes.forEach((iframe) => {
+        const container = iframe.closest('.post-content') as HTMLElement | null;
+        if (!container) return;
+
+        const nw = parseInt(iframe.getAttribute('width') || '560');
+        const nh = parseInt(iframe.getAttribute('height') || '315');
+        const cw = container.clientWidth;
+
+        if (cw >= nw) {
+          iframe.style.transform = '';
+          iframe.style.transformOrigin = '';
+          iframe.style.marginBottom = '1rem';
+          return;
+        }
+
+        const scale = cw / nw;
+        const bottomAdjust = nh * scale - nh; // 음수: 다음 요소 당김
+
+        iframe.style.transform = `scale(${scale})`;
+        iframe.style.transformOrigin = 'top left';
+        iframe.style.marginBottom = `${bottomAdjust}px`;
+      });
+    }
+
+    applyScale();
+    window.addEventListener('resize', applyScale);
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => { setupLightbox(); wrapIframes(); });
+    document.addEventListener('DOMContentLoaded', () => { setupLightbox(); scaleIframes(); });
   } else {
     setupLightbox();
-    wrapIframes();
+    scaleIframes();
   }
 </script>
