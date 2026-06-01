@@ -17,6 +17,13 @@ const { pageTitle, showTitle = true, fullWidth = false } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Gowun+Dodum&family=Gowun+Batang&display=swap" rel="stylesheet" />
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-KL5XB3F0D0"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KL5XB3F0D0');
+    </script>
   </head>
   <body>
     <Header />
