@@ -1,7 +1,7 @@
 ---
-title: SI국, 전 세대 통합 말씀사역 ‘WBWC’ 모델 호주 브리즈번에서 선보여
+title: SI국, 브리즈번에서 WBWC 첫 통합 사역 진행
 pubDate: 2026-06-05
-description: SI국, 전 세대 통합 말씀사역 ‘WBWC’ 모델 호주 브리즈번에서 선보여
+description: SI국, 브리즈번에서 WBWC 첫 통합 사역 진행
 author: Media Team
 image:
   url: https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1780620387/%E1%84%80%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B71_ulquv9.jpg
