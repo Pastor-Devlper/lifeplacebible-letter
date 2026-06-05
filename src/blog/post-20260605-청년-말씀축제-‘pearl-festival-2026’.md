@@ -1,5 +1,5 @@
 ---
-title: 청년 말씀축제 ‘PEARL FESTIVAL 2026’
+title: 청년 말씀축제, PEARL FESTIVAL 2026
 pubDate: 2026-06-02
 description: "2026 PEARL FESTIVAL "
 author: Media Team
