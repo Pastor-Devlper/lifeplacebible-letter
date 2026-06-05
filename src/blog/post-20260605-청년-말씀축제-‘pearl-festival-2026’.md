@@ -1,11 +1,11 @@
 ---
 title: 청년 말씀축제, 2026 신약 펄페스티벌
 pubDate: 2026-06-02
-description: "2026 PEARL FESTIVAL "
+description: 청년 말씀축제, 2026 신약 펄페스티벌
 author: Media Team
 image:
   url: https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1780366155/KakaoTalk_Photo_2026-06-02-10-14-20_ho4odn.png
-  alt: "2026 PEARL FESTIVAL "
+  alt: 청년 말씀축제, 2026 신약 펄페스티벌
 tags:
   - 펄국
   - 펄페스티벌
