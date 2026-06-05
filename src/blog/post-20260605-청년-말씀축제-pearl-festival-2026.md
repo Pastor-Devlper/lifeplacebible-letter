@@ -22,6 +22,6 @@ tags:
 함께 예배하고, 함께 성장하는
 **2026 PEARL FESTIVAL** 에 여러분을 초대합니다.
 
-👉 자세히 보기 
+👇 아래로 스크롤하여 자세한 내용을 확인하세요
 
 <iframe src="https://pearlfestival.netlify.app/pearlfestival_2026/" width="100%" height="800" style="border:none; border-radius:8px;" loading="lazy" title="2026 Pearl Festival"></iframe>
