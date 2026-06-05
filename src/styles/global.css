@@ -280,6 +280,8 @@ video {
 
 .post-content iframe {
   display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   max-width: none;
   border: none;
   border-radius: 8px;
