@@ -141,6 +141,7 @@ const pubDate = new Date(frontmatter.pubDate).toLocaleDateString('ko-KR', {
   function wrapIframes() {
     document.querySelectorAll('.post-content iframe').forEach((iframe) => {
       if (iframe.parentElement?.classList.contains('iframe-wrapper')) return;
+      if (iframe.hasAttribute('height')) return;
       const wrapper = document.createElement('div');
       wrapper.className = 'iframe-wrapper';
       iframe.parentNode!.insertBefore(wrapper, iframe);
