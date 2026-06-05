@@ -24,4 +24,4 @@ tags:
 
 👉 자세히 보기 
 
-https://pearlfestival.netlify.app/pearlfestival_2026/
+<iframe src="https://pearlfestival.netlify.app/pearlfestival_2026/" width="100%" height="800" style="border:none; border-radius:8px;" loading="lazy" title="2026 Pearl Festival"></iframe>
