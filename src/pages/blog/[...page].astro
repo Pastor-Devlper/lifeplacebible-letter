@@ -19,8 +19,18 @@ const { page } = Astro.props;
 const pageTitle = "생터 레터";
 
 const allTags = [...new Set(
-  page.data.flatMap(post => post.data.tags ?? [])
+  page.data.flatMap(post => post.data.tags ?? []).filter(Boolean)
 )];
+
+const allPostsForMonths = await getCollection('blog');
+const recentMonths = [...new Set(
+  allPostsForMonths
+    .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf())
+    .map(post => {
+      const d = new Date(post.data.pubDate);
+      return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+    })
+)].slice(0, 3);
 ---
 
 <BaseLayout pageTitle={pageTitle} showTitle={false} fullWidth={true}>
@@ -33,8 +43,14 @@ const allTags = [...new Set(
   </section>
 
   <section class="blog-section">
-    {allTags.length > 0 && (
+    {(recentMonths.length > 0 || allTags.length > 0) && (
       <div class="tag-row">
+        {recentMonths.map(month => {
+          const [year, mon] = month.split('-');
+          return (
+            <a href={`/months/${month}`} class="tag-pill tag-pill--month">{year}년 {Number(mon)}월</a>
+          );
+        })}
         {allTags.map(tag => (
           <a href={`/tags/${tag}`} class="tag-pill">{tag}</a>
         ))}
@@ -148,6 +164,17 @@ const allTags = [...new Set(
 
   .tag-pill:hover {
     background-color: #0d0950;
+    color: #ffffff;
+  }
+
+  .tag-pill--month {
+    background-color: #fff4f0;
+    color: #ff9776;
+    font-weight: 700;
+  }
+
+  .tag-pill--month:hover {
+    background-color: #ff9776;
     color: #ffffff;
   }
 

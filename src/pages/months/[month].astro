@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogPost from '../../components/BlogPost.astro';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog');
+
+  const uniqueMonths = [...new Set(
+    allPosts.map(post => {
+      const d = new Date(post.data.pubDate);
+      return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+    })
+  )];
+
+  return uniqueMonths.map((month) => {
+    const [year, mon] = month.split('-');
+    const filteredPosts = allPosts
+      .filter(post => {
+        const d = new Date(post.data.pubDate);
+        return (
+          d.getFullYear() === Number(year) &&
+          d.getMonth() + 1 === Number(mon)
+        );
+      })
+      .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
+    return { params: { month }, props: { posts: filteredPosts, year, mon } };
+  });
+}
+
+const { month } = Astro.params;
+const { posts, year, mon } = Astro.props;
+const pageTitle = `${year}년 ${Number(mon)}월`;
+---
+
+<BaseLayout pageTitle={pageTitle} showTitle={false} fullWidth={true}>
+  <section class="tag-detail-hero">
+    <div class="tag-detail-hero-inner">
+      <a href="/blog/" class="tag-back">← 전체 레터</a>
+      <h1 class="tag-detail-title">{pageTitle}</h1>
+      <div class="tag-detail-divider"></div>
+      <p class="tag-detail-count">포스트 {posts.length}개</p>
+    </div>
+  </section>
+
+  <section class="tag-detail-section">
+    <ul class="posts-grid">
+      {posts.map((post) => (
+        <BlogPost
+          url={`/posts/${post.id}`}
+          title={post.data.title}
+          image={post.data.image}
+          pubDate={post.data.pubDate}
+          description={post.data.description}
+          tags={post.data.tags}
+        />
+      ))}
+    </ul>
+  </section>
+</BaseLayout>
