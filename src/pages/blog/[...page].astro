@@ -16,7 +16,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 }
 
 const { page } = Astro.props;
-const pageTitle = "생터 레터";
+const pageTitle = "생터 꿈터";
 
 const allTags = [...new Set(
   page.data.flatMap(post => post.data.tags ?? []).filter(Boolean)
@@ -36,7 +36,7 @@ const recentMonths = [...new Set(
 <BaseLayout pageTitle={pageTitle} showTitle={false} fullWidth={true}>
   <section class="blog-hero">
     <div class="blog-hero-inner">
-      <span class="blog-tag">생터 레터</span>
+      <span class="blog-tag">생터 꿈터</span>
       <h1 class="blog-title">생터의 소식을<br />전해드립니다</h1>
       <div class="blog-divider"></div>
     </div>
