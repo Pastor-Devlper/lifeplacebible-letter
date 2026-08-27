@@ -380,6 +380,10 @@ video {
   background-color: #fada0a;
 }
 
+.kakao-share-btn[hidden] {
+  display: none;
+}
+
 .kakao-share-icon {
   width: 18px;
   height: 18px;
