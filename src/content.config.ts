@@ -16,7 +16,8 @@ const blog = defineCollection({
         url: z.string(),
         alt: z.string()
       }),
-      tags: z.array(z.string())
+      tags: z.array(z.string()),
+      kakaoOrder: z.coerce.number().optional()
     })
 });
 // 단일 `collections` 객체를 내보내 컬렉션을 등록하세요

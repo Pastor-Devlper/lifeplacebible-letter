@@ -5,7 +5,6 @@ import { getCollection } from 'astro:content';
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPost from "../../components/BlogPost.astro";
 import KakaoListShareButton from "../../components/KakaoListShareButton.astro";
-import kakaoPicks from "../../data/kakao-picks.json";
 
 type Props = {
   page: Page<CollectionEntry<'blog'>>;
@@ -34,10 +33,9 @@ const recentMonths = [...new Set(
     })
 )].slice(0, 3);
 
-const pickedIds = (kakaoPicks.posts ?? []) as string[];
-const pickedPosts = pickedIds
-  .map(id => allPostsForMonths.find(post => post.id === id))
-  .filter((post): post is (typeof allPostsForMonths)[number] => Boolean(post));
+const pickedPosts = allPostsForMonths
+  .filter(post => typeof post.data.kakaoOrder === "number")
+  .sort((a, b) => (a.data.kakaoOrder as number) - (b.data.kakaoOrder as number));
 const kakaoListPosts = pickedPosts.length > 0
   ? pickedPosts.slice(0, 5)
   : allPostsForMonths.slice(0, 5);
