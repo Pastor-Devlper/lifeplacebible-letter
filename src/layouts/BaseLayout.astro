@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 const { pageTitle, showTitle = true, fullWidth = false } = Astro.props;
+const kakaoJsKey = import.meta.env.PUBLIC_KAKAO_JS_KEY;
 ---
 
 <html lang="ko">
@@ -34,6 +35,16 @@ const { pageTitle, showTitle = true, fullWidth = false } = Astro.props;
       gtag('js', new Date());
       gtag('config', 'G-KL5XB3F0D0');
     </script>
+    {kakaoJsKey && (
+      <script is:inline src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" crossorigin="anonymous"></script>
+    )}
+    {kakaoJsKey && (
+      <script define:vars={{ kakaoJsKey }}>
+        if (window.Kakao && !window.Kakao.isInitialized()) {
+          window.Kakao.init(kakaoJsKey);
+        }
+      </script>
+    )}
   </head>
   <body>
     <Header />

@@ -355,6 +355,37 @@ video {
   color: #0d0950 !important;
 }
 
+.post-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.kakao-share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #fee500;
+  color: #3c1e1e;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.kakao-share-btn:hover {
+  background-color: #fada0a;
+}
+
+.kakao-share-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
 /* 라이트박스 */
 .lightbox {
   display: none;

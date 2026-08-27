@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import KakaoShareButton from "../components/KakaoShareButton.astro";
 const { frontmatter } = Astro.props;
 const pubDate = new Date(frontmatter.pubDate).toLocaleDateString('ko-KR', {
   year: 'numeric', month: 'long', day: 'numeric'
@@ -52,7 +53,14 @@ const pubDate = new Date(frontmatter.pubDate).toLocaleDateString('ko-KR', {
             <a href={`/tags/${tag}`} class="tag-pill">{tag}</a>
           ))}
         </div>
-        <a href="/blog/" class="post-back">← 목록으로</a>
+        <div class="post-footer-actions">
+          <KakaoShareButton
+            title={frontmatter.title}
+            description={frontmatter.description}
+            imageUrl={frontmatter.image?.url}
+          />
+          <a href="/blog/" class="post-back">← 목록으로</a>
+        </div>
       </div>
     </div>
   </article>

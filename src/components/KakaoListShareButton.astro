@@ -1,0 +1,64 @@
+---
+interface ListPost {
+  id: string;
+  title: string;
+  pubDate: Date;
+  author: string;
+  image: { url: string; alt: string };
+}
+
+interface Props {
+  posts: ListPost[];
+}
+
+const SITE_URL = "https://lifeplaceletter.netlify.app";
+
+const { posts } = Astro.props;
+const templateId = import.meta.env.PUBLIC_KAKAO_TEMPLATE_ID;
+
+const templateArgs: Record<string, string> = {};
+posts.slice(0, 5).forEach((post, index) => {
+  const n = index + 1;
+  const pubDate = new Date(post.pubDate).toLocaleDateString("ko-KR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  templateArgs[`list${n}_title`] = post.title;
+  templateArgs[`list${n}_desc`] = `${pubDate} · ${post.author}`;
+  templateArgs[`list${n}_image`] = post.image.url;
+  templateArgs[`list${n}_link`] = `${SITE_URL}/posts/${post.id}`;
+});
+---
+
+{templateId && posts.length > 0 && (
+  <button
+    type="button"
+    class="kakao-share-btn kakao-list-share-btn"
+    aria-label="카카오톡으로 최신 소식 공유하기"
+  >
+    <svg class="kakao-share-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="12" fill="#FEE500" />
+      <path
+        fill="#3C1E1E"
+        d="M12 5.5c-4.14 0-7.5 2.64-7.5 5.9 0 2.1 1.4 3.95 3.5 5l-.72 2.63a.35.35 0 0 0 .53.39l3.05-2.02c.37.04.75.06 1.14.06 4.14 0 7.5-2.64 7.5-5.9s-3.36-6.06-7.5-6.06z"
+      />
+    </svg>
+    최신 소식 카카오톡 공유
+  </button>
+)}
+
+<script define:vars={{ templateId, templateArgs }}>
+  document.querySelectorAll(".kakao-list-share-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (!window.Kakao || !window.Kakao.isInitialized()) {
+        alert("카카오 공유 기능을 사용할 수 없습니다.");
+        return;
+      }
+      window.Kakao.Share.sendCustom({
+        templateId: Number(templateId),
+        templateArgs,
+      });
+    });
+  });
+</script>

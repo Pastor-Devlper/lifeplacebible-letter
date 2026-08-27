@@ -4,6 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPost from "../../components/BlogPost.astro";
+import KakaoListShareButton from "../../components/KakaoListShareButton.astro";
 
 type Props = {
   page: Page<CollectionEntry<'blog'>>;
@@ -31,6 +32,14 @@ const recentMonths = [...new Set(
       return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
     })
 )].slice(0, 3);
+
+const latestPosts = allPostsForMonths.slice(0, 5).map(post => ({
+  id: post.id,
+  title: post.data.title,
+  pubDate: post.data.pubDate,
+  author: post.data.author,
+  image: post.data.image,
+}));
 ---
 
 <BaseLayout pageTitle={pageTitle} showTitle={false} fullWidth={true}>
@@ -39,6 +48,7 @@ const recentMonths = [...new Set(
       <span class="blog-tag">생터 꿈터</span>
       <h1 class="blog-title">생터의 소식을<br />전해드립니다</h1>
       <div class="blog-divider"></div>
+      <KakaoListShareButton posts={latestPosts} />
     </div>
   </section>
 
