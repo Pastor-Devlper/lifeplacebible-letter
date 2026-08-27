@@ -63,3 +63,4 @@ collections:
             min: 0
             max: 5
             required: false
+            options_length: 100
