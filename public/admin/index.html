@@ -21,7 +21,7 @@
           const name = user.user_metadata?.full_name || user.email;
           try {
             if (!entry.getIn(['data', 'author'])) {
-              return entry.setIn(['data', 'author'], name);
+              return entry.get('data').set('author', name);
             }
           } catch (e) {}
         }

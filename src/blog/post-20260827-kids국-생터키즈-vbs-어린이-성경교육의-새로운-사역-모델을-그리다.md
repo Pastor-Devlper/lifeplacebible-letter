@@ -12,7 +12,6 @@ tags:
   - 어린이
   - 다음세대
   - 여름캠프
-kakaoFeatured: true
 ---
 # **생터키즈 VBS, 어린이 성경교육의**
 
