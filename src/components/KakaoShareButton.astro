@@ -18,6 +18,7 @@ const templateId = import.meta.env.PUBLIC_KAKAO_TEMPLATE_ID;
     data-image-url={imageUrl}
     data-link={link ?? ""}
     aria-label="카카오톡으로 공유하기"
+    hidden
   >
     <svg class="kakao-share-icon" viewBox="0 0 24 24" aria-hidden="true">
       <circle cx="12" cy="12" r="12" fill="#FEE500" />
@@ -48,4 +49,27 @@ const templateId = import.meta.env.PUBLIC_KAKAO_TEMPLATE_ID;
       });
     });
   });
+
+  // 관리자(Netlify Identity 로그인) 상태에서만 버튼을 노출한다.
+  (function () {
+    function applyVisibility() {
+      const user = window.netlifyIdentity && window.netlifyIdentity.currentUser();
+      document.querySelectorAll(".kakao-share-btn").forEach((btn) => {
+        btn.hidden = !user;
+      });
+    }
+    applyVisibility();
+    let tries = 0;
+    const timer = setInterval(() => {
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", applyVisibility);
+        window.netlifyIdentity.on("login", applyVisibility);
+        window.netlifyIdentity.on("logout", applyVisibility);
+        applyVisibility();
+        clearInterval(timer);
+      } else if (++tries > 40) {
+        clearInterval(timer);
+      }
+    }, 250);
+  })();
 </script>
