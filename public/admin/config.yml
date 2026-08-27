@@ -44,3 +44,22 @@ collections:
           - { label: "이미지 설명 (alt)", name: alt, widget: string }
       - { label: "태그", name: tags, widget: list }
       - { label: "본문", name: body, widget: markdown }
+
+  - name: settings
+    label: "설정"
+    files:
+      - name: kakao_picks
+        label: "카카오톡 공유 - 소식 선정"
+        file: src/data/kakao-picks.json
+        fields:
+          - label: "선정 게시글 (최대 5개, 위에서부터 순서대로 노출됩니다. 아무것도 선택 안 하면 최신 글 5개가 자동으로 나갑니다.)"
+            name: posts
+            widget: relation
+            collection: blog
+            search_fields: [title]
+            display_fields: [title]
+            value_field: "{{slug}}"
+            multiple: true
+            min: 0
+            max: 5
+            required: false
