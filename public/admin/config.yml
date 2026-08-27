@@ -43,12 +43,10 @@ collections:
           - { label: "이미지", name: url, widget: image }
           - { label: "이미지 설명 (alt)", name: alt, widget: string }
       - { label: "태그", name: tags, widget: list }
-      - label: "카카오톡 소식 노출 순서"
-        name: kakaoOrder
-        widget: number
-        value_type: int
-        min: 1
-        max: 5
+      - label: "카카오톡 소식에 포함"
+        name: kakaoFeatured
+        widget: boolean
+        default: false
         required: false
-        hint: "카카오톡 공유 리스트에 넣고 싶으면 1~5 사이 숫자를 입력하세요 (숫자가 작을수록 먼저 노출). 비워두면 이 글은 목록에서 제외됩니다. 아무 글도 지정하지 않으면 최신 글 5개가 자동으로 나갑니다."
+        hint: "체크하면 카카오톡 공유 리스트에 포함됩니다. 여러 개를 체크하면 최신 글 순으로 최대 5개까지만 노출됩니다. 아무 글도 체크하지 않으면 최신 글 5개가 자동으로 나갑니다."
       - { label: "본문", name: body, widget: markdown }

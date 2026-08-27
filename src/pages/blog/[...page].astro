@@ -33,9 +33,7 @@ const recentMonths = [...new Set(
     })
 )].slice(0, 3);
 
-const pickedPosts = allPostsForMonths
-  .filter(post => typeof post.data.kakaoOrder === "number")
-  .sort((a, b) => (a.data.kakaoOrder as number) - (b.data.kakaoOrder as number));
+const pickedPosts = allPostsForMonths.filter(post => post.data.kakaoFeatured);
 const kakaoListPosts = pickedPosts.length > 0
   ? pickedPosts.slice(0, 5)
   : allPostsForMonths.slice(0, 5);
