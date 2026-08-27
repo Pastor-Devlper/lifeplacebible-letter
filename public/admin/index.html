@@ -15,6 +15,7 @@
       CMS.registerEventListener({
         name: 'preSave',
         handler: ({ entry }) => {
+          if (entry.get('collection') !== 'blog') return;
           const user = window.netlifyIdentity?.currentUser();
           if (!user) return;
           const name = user.user_metadata?.full_name || user.email;
