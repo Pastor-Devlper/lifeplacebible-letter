@@ -1,3 +1,98 @@
 {
-  "posts": []
+  "partial": false,
+  "path": "src/data/kakao-picks.json",
+  "meta": {
+    "path": "src/data/kakao-picks.json"
+  },
+  "isModification": null,
+  "raw": "{\n  \"posts\": []\n}\n",
+  "data": {
+    "posts": [
+      "post-20260605-2026-yrg-여름캠프-등록-접수-시작",
+      "post-003",
+      "post-008",
+      "post-007"
+    ],
+    "author": "미디어국"
+  },
+  "author": "",
+  "slug": "kakao_picks",
+  "newRecord": false,
+  "status": "",
+  "mediaFiles": [
+    {
+      "id": "9999acda25610516b7a164fa4d1f144019ea38e5",
+      "name": ".env.example",
+      "size": 293,
+      "displayURL": {
+        "id": "9999acda25610516b7a164fa4d1f144019ea38e5",
+        "path": "/.env.example"
+      },
+      "path": "/.env.example"
+    },
+    {
+      "id": "016b59ea143dc944b0fc635052b7bdbcfce23d14",
+      "name": ".gitignore",
+      "size": 264,
+      "displayURL": {
+        "id": "016b59ea143dc944b0fc635052b7bdbcfce23d14",
+        "path": "/.gitignore"
+      },
+      "path": "/.gitignore"
+    },
+    {
+      "id": "414a13a66195fc0ef0ac602f72b3b167333e9750",
+      "name": "README.md",
+      "size": 1657,
+      "displayURL": {
+        "id": "414a13a66195fc0ef0ac602f72b3b167333e9750",
+        "path": "/README.md"
+      },
+      "path": "/README.md"
+    },
+    {
+      "id": "b07bcb244fe1a121a7e023b37dd7fa959e77a398",
+      "name": "astro.config.mjs",
+      "size": 236,
+      "displayURL": {
+        "id": "b07bcb244fe1a121a7e023b37dd7fa959e77a398",
+        "path": "/astro.config.mjs"
+      },
+      "path": "/astro.config.mjs"
+    },
+    {
+      "id": "77f9746404d5fa108346114178bb8e33a9a12a40",
+      "name": "package-lock.json",
+      "size": 237258,
+      "displayURL": {
+        "id": "77f9746404d5fa108346114178bb8e33a9a12a40",
+        "path": "/package-lock.json"
+      },
+      "path": "/package-lock.json"
+    },
+    {
+      "id": "593771f9492ae55f7eb228bde3752b87e431a018",
+      "name": "package.json",
+      "size": 463,
+      "displayURL": {
+        "id": "593771f9492ae55f7eb228bde3752b87e431a018",
+        "path": "/package.json"
+      },
+      "path": "/package.json"
+    },
+    {
+      "id": "47a93ece296d631d7497c8248c72d4c6d6b8342a",
+      "name": "tsconfig.json",
+      "size": 211,
+      "displayURL": {
+        "id": "47a93ece296d631d7497c8248c72d4c6d6b8342a",
+        "path": "/tsconfig.json"
+      },
+      "path": "/tsconfig.json"
+    }
+  ],
+  "label": "카카오톡 공유 - 소식 선정",
+  "updatedOn": "",
+  "i18n": {},
+  "collection": "settings"
 }
