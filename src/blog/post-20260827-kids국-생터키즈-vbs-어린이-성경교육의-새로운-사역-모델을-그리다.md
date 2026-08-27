@@ -31,8 +31,6 @@ Kids국은 각 현장의 필요에 귀 기울이며 어린이들이 실제로 �
 
 생터키즈를 처음 만나고 경험하는 단계에서 시작해, 교회 안에 사역팀을 세우고, 나아가 지역과 지부에 사역이 지속적으로 뿌리내리는 단계까지 연결되는 현장 중심의 사역 모델입니다.
 
-
-
 ![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791546/KakaoTalk_Photo_2026-08-27-09-45-14_001_lij3tm.jpg)
 
 ### ✦ Wow Ministry | “와우! 이런 어린이 성경 프로그램이 있다니”
@@ -46,8 +44,6 @@ Kids국은 각 현장의 필요에 귀 기울이며 어린이들이 실제로 �
 세 차례 모두 생터키즈 VBS ‘구약 1탄’인 ‘일일일 캠프’를 중심으로 진행되었으며, 어린이와 교사를 포함해 총 500여 명이 참여했습니다.
 
 특히 성경 이야기를 드라마로 보여주는 바이블스토리와 다양한 스테이션 활동을 통해 생터키즈 콘텐츠가 실제 교육 현장에서 어떻게 구현되는지를 경험했으며, 교사와 사역자들에게도 생터키즈 VBS의 구성과 활용 가능성을 직접 확인하는 시간이 되었습니다.
-
-
 
 ![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791547/KakaoTalk_Photo_2026-08-27-09-45-14_002_skboez.jpg)
 
@@ -81,11 +77,7 @@ Kids국은 각 현장의 필요에 귀 기울이며 어린이들이 실제로 �
 
 Planting Ministry는 한 번의 VBS 개최에 목적을 두기보다 교회 안에 사람을 세우고 사역의 씨앗을 심어, 교회 스스로 사역을 지속할 수 있는 기반을 마련하는 것에 의미가 있습니다.
 
-
-
 ![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791549/KakaoTalk_Photo_2026-08-27-09-45-18_007_lktsib.jpg)
-
-![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791546/KakaoTalk_Photo_2026-08-27-09-44-49_002_uauysh.jpg)
 
 ▲ 대전열방교회 바이블스토리 현장
 
@@ -102,8 +94,6 @@ Planting Ministry는 한 번의 VBS 개최에 목적을 두기보다 교회 안�
 특히 Rooting Ministry는 본부 중심의 사역에서 한 걸음 더 나아가, 각 지부가 축적된 경험과 인적 자원을 바탕으로 스스로 VBS를 기획하고 운영하며 사역을 확장해 간다는 점에서 의미가 있습니다.
 
 Kids국은 앞으로 각 지부와 교회에서 VBS가 일회성 행사에 머무르지 않고 지속 가능한 어린이 사역으로 정착할 수 있도록 Rooting Ministry를 더욱 확대해 나갈 계획입니다.
-
-
 
 ![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791549/KakaoTalk_Photo_2026-08-27-09-45-18_008_twm5qe.jpg)
 
