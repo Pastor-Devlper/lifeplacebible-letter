@@ -6,7 +6,14 @@ const pubDate = new Date(frontmatter.pubDate).toLocaleDateString('ko-KR', {
   year: 'numeric', month: 'long', day: 'numeric'
 });
 ---
-<BaseLayout pageTitle={frontmatter.title} showTitle={false} fullWidth={true}>
+<BaseLayout
+  pageTitle={frontmatter.title}
+  showTitle={false}
+  fullWidth={true}
+  ogImage={frontmatter.image?.url}
+  ogDescription={frontmatter.description}
+  ogUrl={Astro.url.href}
+>
 
   <article class="post-article">
     <!-- 포스트 헤더 -->
