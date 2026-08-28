@@ -572,6 +572,23 @@ video {
     aspect-ratio: 16 / 9;
     max-height: 90vh;
   }
+
+  .share-buttons {
+    flex-wrap: nowrap;
+  }
+
+  .share-btn {
+    padding: 8px;
+  }
+
+  .share-btn-label {
+    display: none;
+  }
+
+  .post-footer-actions {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* ── Tags 페이지 ── */
