@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import KakaoShareButton from "../components/KakaoShareButton.astro";
+import ShareButtons from "../components/ShareButtons.astro";
 const { frontmatter } = Astro.props;
 const pubDate = new Date(frontmatter.pubDate).toLocaleDateString('ko-KR', {
   year: 'numeric', month: 'long', day: 'numeric'
@@ -54,7 +54,7 @@ const pubDate = new Date(frontmatter.pubDate).toLocaleDateString('ko-KR', {
           ))}
         </div>
         <div class="post-footer-actions">
-          <KakaoShareButton
+          <ShareButtons
             title={frontmatter.title}
             description={frontmatter.description}
             imageUrl={frontmatter.image?.url}

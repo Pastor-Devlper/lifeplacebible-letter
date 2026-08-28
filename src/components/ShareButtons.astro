@@ -1,0 +1,139 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  imageUrl?: string;
+  link?: string;
+}
+const { title, description, imageUrl, link } = Astro.props;
+const kakaoEnabled = !!import.meta.env.PUBLIC_KAKAO_JS_KEY;
+---
+
+<div
+  class="share-buttons"
+  data-title={title}
+  data-description={description ?? ""}
+  data-image-url={imageUrl ?? ""}
+  data-link={link ?? ""}
+>
+  {kakaoEnabled && (
+    <button type="button" class="share-btn share-btn-kakao" aria-label="카카오톡으로 공유하기">
+      <svg class="share-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="12" fill="#FEE500" />
+        <path
+          fill="#3C1E1E"
+          d="M12 5.5c-4.14 0-7.5 2.64-7.5 5.9 0 2.1 1.4 3.95 3.5 5l-.72 2.63a.35.35 0 0 0 .53.39l3.05-2.02c.37.04.75.06 1.14.06 4.14 0 7.5-2.64 7.5-5.9s-3.36-6.06-7.5-6.06z"
+        />
+      </svg>
+      <span class="share-btn-label">카카오톡</span>
+    </button>
+  )}
+
+  <button type="button" class="share-btn share-btn-copy" aria-label="링크 복사">
+    <svg class="share-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="12" fill="#6b7280" />
+      <path
+        fill="#fff"
+        d="M10.1 14.9a1 1 0 0 1 0-1.41l2.83-2.83a2.5 2.5 0 0 1 3.54 3.54l-1.06 1.06a1 1 0 1 1-1.41-1.41l1.06-1.06a.5.5 0 0 0-.71-.71l-2.83 2.83a1 1 0 0 1-1.42-.01Zm-2.83 2.83a2.5 2.5 0 0 1 0-3.54l1.06-1.06a1 1 0 1 1 1.41 1.41l-1.06 1.06a.5.5 0 0 0 .71.71l2.83-2.83a1 1 0 1 1 1.41 1.41l-2.83 2.83a2.5 2.5 0 0 1-3.53.01Z"
+      />
+    </svg>
+    <span class="share-btn-label">링크 복사</span>
+  </button>
+
+  <a class="share-btn share-btn-band" href="#" target="_blank" rel="noopener noreferrer" aria-label="네이버 밴드로 공유하기">
+    <svg class="share-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="12" fill="#00C73C" />
+      <text x="12" y="16.5" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="sans-serif">B</text>
+    </svg>
+    <span class="share-btn-label">밴드</span>
+  </a>
+
+  <a class="share-btn share-btn-facebook" href="#" target="_blank" rel="noopener noreferrer" aria-label="페이스북으로 공유하기">
+    <svg class="share-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="12" fill="#1877F2" />
+      <path
+        fill="#fff"
+        d="M13.5 21v-7.2h2.4l.36-2.8h-2.76v-1.8c0-.81.22-1.36 1.39-1.36h1.48V5.34c-.26-.03-1.14-.11-2.17-.11-2.15 0-3.62 1.31-3.62 3.72v2.07H8.18v2.8h2.4V21h2.92Z"
+      />
+    </svg>
+    <span class="share-btn-label">페이스북</span>
+  </a>
+
+  <a class="share-btn share-btn-x" href="#" target="_blank" rel="noopener noreferrer" aria-label="X(트위터)로 공유하기">
+    <svg class="share-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="12" fill="#000" />
+      <path
+        fill="#fff"
+        d="M7 6.5h2.6l2.55 3.5 2.9-3.5h1.7l-3.8 4.6L17.4 17.5h-2.6l-2.75-3.78-3.15 3.78H7l4.05-4.87L7 6.5Z"
+      />
+    </svg>
+    <span class="share-btn-label">X</span>
+  </a>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".share-buttons").forEach((container) => {
+    const link = container.dataset.link || window.location.href;
+    const title = container.dataset.title || document.title;
+    const description = container.dataset.description || "";
+    const imageUrl = container.dataset.imageUrl || `${window.location.origin}/og-image.jpg`;
+
+    const kakaoBtn = container.querySelector<HTMLButtonElement>(".share-btn-kakao");
+    kakaoBtn?.addEventListener("click", () => {
+      const kakao = (window as any).Kakao;
+      if (!kakao || !kakao.isInitialized()) {
+        alert("카카오 공유 기능을 사용할 수 없습니다.");
+        return;
+      }
+      kakao.Share.sendDefault({
+        objectType: "feed",
+        content: {
+          title,
+          description,
+          imageUrl,
+          link: { mobileWebUrl: link, webUrl: link },
+        },
+        buttons: [
+          {
+            title: "자세히 보기",
+            link: { mobileWebUrl: link, webUrl: link },
+          },
+        ],
+      });
+    });
+
+    const bandLink = container.querySelector<HTMLAnchorElement>(".share-btn-band");
+    if (bandLink) {
+      bandLink.href = `https://band.us/plugin/share?body=${encodeURIComponent(`${title} ${link}`)}&route=${encodeURIComponent(link)}`;
+    }
+
+    const facebookLink = container.querySelector<HTMLAnchorElement>(".share-btn-facebook");
+    if (facebookLink) {
+      facebookLink.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(link)}`;
+    }
+
+    const xLink = container.querySelector<HTMLAnchorElement>(".share-btn-x");
+    if (xLink) {
+      xLink.href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(link)}&text=${encodeURIComponent(title)}`;
+    }
+
+    const copyBtn = container.querySelector<HTMLButtonElement>(".share-btn-copy");
+    const copyLabel = copyBtn?.querySelector<HTMLSpanElement>(".share-btn-label");
+    copyBtn?.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(link);
+        if (copyLabel) {
+          const original = copyLabel.textContent;
+          copyBtn.classList.add("copied");
+          copyLabel.textContent = "복사됨!";
+          setTimeout(() => {
+            copyLabel.textContent = original;
+            copyBtn.classList.remove("copied");
+          }, 1500);
+        }
+      } catch {
+        alert("링크 복사에 실패했습니다.");
+      }
+    });
+  });
+</script>

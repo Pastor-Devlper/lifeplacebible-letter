@@ -390,6 +390,53 @@ video {
   flex-shrink: 0;
 }
 
+.share-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #f3f4f6;
+  color: #374151;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: inherit;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.share-btn:hover {
+  background-color: #e5e7eb;
+}
+
+.share-btn-kakao {
+  background-color: #fee500;
+  color: #3c1e1e;
+}
+
+.share-btn-kakao:hover {
+  background-color: #fada0a;
+}
+
+.share-btn-copy.copied {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.share-btn-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
 /* 라이트박스 */
 .lightbox {
   display: none;
