@@ -35,7 +35,7 @@ Kids국은 각 현장의 필요에 귀 기울이며 어린이들이 실제로 �
 
 ![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791546/KakaoTalk_Photo_2026-08-27-09-45-14_001_lij3tm.jpg)
 
-### ✦ Wow Ministry | “와우! 이런 어린이 성경 프로그램이 있다니”
+### ① Wow Ministry | “와우! 이런 어린이 성경 프로그램이 있다니”
 
 ‘Wow Ministry’는 본부 Kids국이 직접 주관하는 VBS를 통해 생터키즈 VBS를 처음 접하는 개인과 교회, 교단에 **생터만의 독특하고 탁월한 어린이 성경교육 콘텐츠를 소개하고 직접 경험**하도록 하는 사역 모델입니다.
 
@@ -65,7 +65,7 @@ Kids국은 각 현장의 필요에 귀 기울이며 어린이들이 실제로 �
 
 ▲ 대전 행복한교회
 
-### ✦ Planting Ministry | 교회 안에 사역의 씨앗을 심다
+### ②  Planting Ministry | 교회 안에 사역의 씨앗을 심다
 
 ‘Planting Ministry’는 본부가 프로그램을 직접 진행하는 단계를 넘어, 개체교회 안에 자체적인 사역팀을 세우고 일정 기간 교육과 훈련을 통해 교회가 직접 VBS를 운영할 수 있도록 지원하는 사역 모델입니다.
 
@@ -83,7 +83,7 @@ Planting Ministry는 한 번의 VBS 개최에 목적을 두기보다 **교회 �
 
 ▲ 대전열방교회 바이블스토리 현장
 
-### ✦ Rooting Ministry | 심겨진 사역이 지역과 지부에 뿌리내리다
+### ③  Rooting Ministry | 심겨진 사역이 지역과 지부에 뿌리내리다
 
 ‘Rooting Ministry’는 Planting Ministry에서 한 단계 발전한 형태로, 수년간 생터키즈 **VBS를 경험하고 직접 운영하면서 프로그램과 사역 역량이 교회와 지역에 안정적으로 뿌리내린 사역 모델**입니다.
 
