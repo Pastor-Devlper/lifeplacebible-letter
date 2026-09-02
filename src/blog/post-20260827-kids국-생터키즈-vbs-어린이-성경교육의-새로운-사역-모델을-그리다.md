@@ -1,7 +1,7 @@
 ---
 title: <Kids국> 생터키즈 VBS, 어린이 성경교육의 새로운 사역 모델을 그리다
 pubDate: 2026-08-27
-description: <kids국> 생터키즈 VBS,         어린이 성경교육의 새로운 사역 모델을 그리다
+description: <kids국> 생터키즈 VBS, 어린이 성경교육의 새로운 사역 모델을 그리다
 author: 권은미 국장
 image:
   url: https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791548/KakaoTalk_Photo_2026-08-27-09-45-15_003_iwvibu.jpg
@@ -13,7 +13,9 @@ tags:
   - 다음세대
   - 여름캠프
 ---
-# **생터키즈 VBS, 어린이 성경교육의**
+# **생터키즈 VBS,** 
+
+# **어린이 성경교육의**
 
 # **새로운 사역 모델을 그리다**
 
