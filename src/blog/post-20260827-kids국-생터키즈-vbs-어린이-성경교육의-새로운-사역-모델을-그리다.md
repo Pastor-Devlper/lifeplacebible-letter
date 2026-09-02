@@ -47,23 +47,17 @@ Kids국은 각 현장의 필요에 귀 기울이며 어린이들이 실제로 �
 
 특히 성경 이야기를 드라마로 보여주는 바이블스토리와 다양한 스테이션 활동을 통해 생터키즈 콘텐츠가 실제 교육 현장에서 어떻게 구현되는지를 경험했으며, 교사와 사역자들도 생터키즈 **VBS의 구성과 활용 가능성**을 직접 확인하는 시간이 되었습니다.
 
-![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791547/KakaoTalk_Photo_2026-08-27-09-45-14_002_skboez.jpg)
+![서울 옥토교회](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791547/KakaoTalk_Photo_2026-08-27-09-45-14_002_skboez.jpg)
 
-▲ 서울 옥토교회 
+![고덕감리교회](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787793300/%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB3_%E1%84%80%E1%85%A9%E1%84%83%E1%85%A5%E1%86%A8%E1%84%80%E1%85%A1%E1%86%B7%E1%84%85%E1%85%B5%E1%84%80%E1%85%AD%E1%84%92%E1%85%AC_lbqown.jpg)
 
-![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787793300/%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB3_%E1%84%80%E1%85%A9%E1%84%83%E1%85%A5%E1%86%A8%E1%84%80%E1%85%A1%E1%86%B7%E1%84%85%E1%85%B5%E1%84%80%E1%85%AD%E1%84%92%E1%85%AC_lbqown.jpg)
-
-![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791546/KakaoTalk_Photo_2026-08-27-09-44-49_001_hk1mtp.jpg)
-
-▲ 고덕감리교회 
+![고덕감리교회](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791546/KakaoTalk_Photo_2026-08-27-09-44-49_001_hk1mtp.jpg)
 
 ![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791548/KakaoTalk_Photo_2026-08-27-09-45-15_004_czsool.jpg)
 
 ![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791549/KakaoTalk_Photo_2026-08-27-09-45-16_005_sgyzpg.jpg)
 
-![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791549/KakaoTalk_Photo_2026-08-27-09-45-17_006_gpljlt.jpg)
-
-▲ 대전 행복한교회
+![대전 행복한교회](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791549/KakaoTalk_Photo_2026-08-27-09-45-17_006_gpljlt.jpg)
 
 ### 2. Planting Ministry | 교회 안에 사역의 씨앗을 심다
 
@@ -79,9 +73,7 @@ Kids국은 각 현장의 필요에 귀 기울이며 어린이들이 실제로 �
 
 Planting Ministry는 한 번의 VBS 개최에 목적을 두기보다 **교회 안에 사람을 세우고 사역의 씨앗을 심어, 교회 스스로 사역을 지속할 수 있는 기반을 마련하는 것에 의미**가 있습니다.
 
-![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791549/KakaoTalk_Photo_2026-08-27-09-45-18_007_lktsib.jpg)
-
-▲ 대전열방교회 바이블스토리 현장
+![대전열방교회 바이블스토리 현장](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791549/KakaoTalk_Photo_2026-08-27-09-45-18_007_lktsib.jpg)
 
 ### 3.  Rooting Ministry | 심겨진 사역이 지역과 지부에 뿌리내리다
 
@@ -97,17 +89,13 @@ Planting Ministry는 한 번의 VBS 개최에 목적을 두기보다 **교회 �
 
 Kids국은 앞으로 각 지부와 교회에서 VBS가 일회성 행사에 머무르지 않고 지속 가능한 어린이 사역으로 정착할 수 있도록 **Rooting Ministry를 더욱 확대해 나갈 계획**입니다.
 
-![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791549/KakaoTalk_Photo_2026-08-27-09-45-18_008_twm5qe.jpg)
+![동·서대구지부 연합 VBS 현장](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791549/KakaoTalk_Photo_2026-08-27-09-45-18_008_twm5qe.jpg)
 
-▲ 동·서대구지부 연합 VBS 현장
+![김해지부 VBS 현장](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791550/KakaoTalk_Photo_2026-08-27-09-45-19_009_amvceo.jpg)
 
-![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791550/KakaoTalk_Photo_2026-08-27-09-45-19_009_amvceo.jpg)
+![고양지부 VBS 현장](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787793570/%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB8_%E1%84%80%E1%85%A9%E1%84%8B%E1%85%A3%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%87%E1%85%AE_zb4wqb.jpg)
 
-▲ 김해지부 VBS 현장
-
-![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787793570/%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB8_%E1%84%80%E1%85%A9%E1%84%8B%E1%85%A3%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%87%E1%85%AE_zb4wqb.jpg)
-
-▲ 고양지부 VBS 현장
+<br/>
 
 > ### 👉  ‘경험’에서 ‘자립’, 그리고 ‘정착’으로
 >

@@ -36,24 +36,15 @@ YRG 캠프에서 받은 은혜가 일회성 경험으로 끝나지 않고 각자
 
 앞으로도 다음 세대가 말씀 위에 굳게 서서 하나님 나라를 위해 살아가는 믿음의 세대로 세워지기를 기대합니다.
 
-![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787716026/image01_yagaqj.png)
+![캠프후기](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787716026/image01_yagaqj.png)
 
-▲ **캠프후기**
+![바울의 비밀 지령 "헌금을 모아서 예루살렘교회에 전달하라" 무더운 날씨 속에서도 처음 만난 친구들과 공동체 활동을 하며 하나 됨의 기쁨을 누리는 YRG](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787716029/image03_jxhpgv.png)
 
-![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787716029/image03_jxhpgv.png)
+![바울의 비밀 지령 "헌금을 모아서 예루살렘교회에 전달하라" 무더운 날씨 속에서도 처음 만난 친구들과 공동체 활동을 하며 하나 됨의 기쁨을 누리는 YRG](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787716028/image04_vwaavl.png)
 
-![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787716028/image04_vwaavl.png)
+![9-1과 바울의 2차 선교여행을 강의하는 중학교 2학년 정하린 친쌤](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787716029/image05_lsajr2.png)
 
-▲ **바울의 비밀 지령 "헌금을 모아서 예루살렘교회에 전달하라"
-무더운 날씨 속에서도 처음 만난 친구들과 공동체 활동을 하며 하나 됨의 기쁨을 누리는 YRG**
-
-![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787716029/image05_lsajr2.png)
-
-▲ **9-1과 바울의 2차 선교여행을 강의하는 중학교 2학년 정하린 친쌤**
-
-![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787716029/image06_icuqy7.png)
-
-▲ **11-1과 바울의 3차 선교여행을 강의하는 중3 김은찬 친쌤**
+![11-1과 바울의 3차 선교여행을 강의하는 중3 김은찬 친쌤](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787716029/image06_icuqy7.png)
 
 
 

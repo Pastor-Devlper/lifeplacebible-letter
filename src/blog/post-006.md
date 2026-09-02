@@ -14,4 +14,4 @@ tags:
 
 이번 행사는 서로를 격려하며 믿음의 공동체로 더욱 굳건히 서기 위한 뜻깊은 시간으로 마련되었습니다. 
 
-![365사역팀](https://res.cloudinary.com/dr5s1mtyi/image/upload/v1778653826/Lifeplaceletter/wvduuk66ti6dxl2vzgsl.png)
+![](https://res.cloudinary.com/dr5s1mtyi/image/upload/v1778653826/Lifeplaceletter/wvduuk66ti6dxl2vzgsl.png)
