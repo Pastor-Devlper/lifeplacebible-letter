@@ -49,9 +49,9 @@ Kids국은 각 현장의 필요에 귀 기울이며 어린이들이 실제로 �
 
 ![서울 옥토교회](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791547/KakaoTalk_Photo_2026-08-27-09-45-14_002_skboez.jpg)
 
-![고덕감리교회](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787793300/%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB3_%E1%84%80%E1%85%A9%E1%84%83%E1%85%A5%E1%86%A8%E1%84%80%E1%85%A1%E1%86%B7%E1%84%85%E1%85%B5%E1%84%80%E1%85%AD%E1%84%92%E1%85%AC_lbqown.jpg)
 
-![고덕감리교회](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791546/KakaoTalk_Photo_2026-08-27-09-44-49_001_hk1mtp.jpg)
+
+
 
 ![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791548/KakaoTalk_Photo_2026-08-27-09-45-15_004_czsool.jpg)
 
