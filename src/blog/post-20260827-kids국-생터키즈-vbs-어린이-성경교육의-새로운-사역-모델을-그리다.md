@@ -85,7 +85,7 @@ Planting Ministry는 한 번의 VBS 개최에 목적을 두기보다 **교회 �
 
 ### ✦ Rooting Ministry | 심겨진 사역이 지역과 지부에 뿌리내리다
 
-**‘Rooting Ministry’**는 Planting Ministry에서 한 단계 발전한 형태로, 수년간 생터키즈 **VBS를 경험하고 직접 운영하면서 프로그램과 사역 역량이 교회와 지역에 안정적으로 뿌리내린 사역 모델**입니다.
+‘Rooting Ministry’는 Planting Ministry에서 한 단계 발전한 형태로, 수년간 생터키즈 **VBS를 경험하고 직접 운영하면서 프로그램과 사역 역량이 교회와 지역에 안정적으로 뿌리내린 사역 모델**입니다.
 
 올여름에는 여러 지역에서 Rooting Ministry의 모습을 확인할 수 있었습니다.
 
