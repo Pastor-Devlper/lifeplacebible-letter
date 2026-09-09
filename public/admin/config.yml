@@ -45,6 +45,37 @@ collections:
       - { label: "태그", name: tags, widget: list }
       - { label: "본문", name: body, widget: markdown }
 
+  - name: issues
+    label: "생터 꿈터 (호별 발송)"
+    label_singular: "호"
+    folder: src/data/issues
+    create: true
+    delete: true
+    extension: json
+    format: json
+    slug: "{{fields.issue}}호"
+    identifier_field: issue
+    fields:
+      - { label: "호수", name: issue, widget: number, value_type: int, min: 1, hint: "예: 1, 2, 3..." }
+      - label: "발송일"
+        name: sendDate
+        widget: datetime
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        picker_utc: true
+        required: false
+      - label: "포함 포스트 (발송 순서대로 선택)"
+        name: posts
+        widget: relation
+        collection: blog
+        search_fields: [title]
+        display_fields: [title]
+        value_field: "{{slug}}"
+        multiple: true
+        min: 1
+        options_length: 200
+
   - name: settings
     label: "설정"
     files:

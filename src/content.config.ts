@@ -19,5 +19,14 @@ const blog = defineCollection({
       tags: z.array(z.string())
     })
 });
+
+const issues = defineCollection({
+    loader: glob({ pattern: '**/*.json', base: "./src/data/issues" }),
+    schema: z.object({
+      issue: z.number(),
+      sendDate: z.coerce.date().optional(),
+      posts: z.array(z.string())
+    })
+});
 // 단일 `collections` 객체를 내보내 컬렉션을 등록하세요
-export const collections = { blog };
+export const collections = { blog, issues };

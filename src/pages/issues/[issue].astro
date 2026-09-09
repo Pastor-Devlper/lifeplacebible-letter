@@ -1,0 +1,72 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogPost from '../../components/BlogPost.astro';
+
+export async function getStaticPaths() {
+  const issues = await getCollection('issues');
+  const allPosts = await getCollection('blog');
+
+  // Astro의 post.id는 파일명을 slugify(이모지 등 제거)한 값이라
+  // CMS가 저장하는 실제 파일명과 다를 수 있어, 파일명 기준으로 매칭한다.
+  function fileSlug(post: (typeof allPosts)[number]): string {
+    const filePath = post.filePath ?? '';
+    const fileName = filePath.split('/').pop() ?? '';
+    return fileName.replace(/\.[^.]+$/, '') || post.id;
+  }
+
+  return issues.map((entry) => {
+    const posts = entry.data.posts
+      .map((id) => allPosts.find((post) => fileSlug(post) === id))
+      .filter((post): post is (typeof allPosts)[number] => Boolean(post));
+
+    return {
+      params: { issue: String(entry.data.issue) },
+      props: { entry, posts },
+    };
+  });
+}
+
+type Props = {
+  entry: CollectionEntry<'issues'>;
+  posts: CollectionEntry<'blog'>[];
+};
+
+const { entry, posts } = Astro.props as Props;
+const pageTitle = `생터 꿈터 ${entry.data.issue}호`;
+const sendDateLabel = entry.data.sendDate
+  ? new Date(entry.data.sendDate).toLocaleDateString('ko-KR', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
+  : null;
+---
+
+<BaseLayout pageTitle={pageTitle} showTitle={false} fullWidth={true}>
+  <section class="tag-detail-hero">
+    <div class="tag-detail-hero-inner">
+      <a href="/blog/" class="tag-back">← 전체 보기</a>
+      <h1 class="tag-detail-title">생터 꿈터 {entry.data.issue}호</h1>
+      <div class="tag-detail-divider"></div>
+      <p class="tag-detail-count">
+        포스트 {posts.length}개{sendDateLabel && ` · ${sendDateLabel} 발송`}
+      </p>
+    </div>
+  </section>
+
+  <section class="tag-detail-section">
+    <ul class="posts-grid">
+      {posts.map((post) => (
+        <BlogPost
+          url={`/posts/${post.id}`}
+          title={post.data.title}
+          image={post.data.image}
+          pubDate={post.data.pubDate}
+          description={post.data.description}
+          tags={post.data.tags}
+        />
+      ))}
+    </ul>
+  </section>
+</BaseLayout>
