@@ -25,9 +25,6 @@ const pubDate = new Date(frontmatter.pubDate).toLocaleDateString('ko-KR', {
           ))}
         </div>
         <h1 class="post-title">{frontmatter.title}</h1>
-        {frontmatter.description && (
-          <p class="post-description">{frontmatter.description}</p>
-        )}
         <div class="post-meta-bottom">
           <span class="post-author">{frontmatter.author}</span>
           <span class="post-meta-sep">·</span>
