@@ -1178,6 +1178,17 @@ a.card:hover .card-image img {
   color: #ffffff;
 }
 
+.tag-pill--issue {
+  background-color: #ecfdf5;
+  color: #059669;
+  font-weight: 700;
+}
+
+.tag-pill--issue:hover {
+  background-color: #059669;
+  color: #ffffff;
+}
+
 .pagination {
   display: flex;
   align-items: center;

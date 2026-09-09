@@ -24,6 +24,9 @@ const allTags = [...new Set(
   page.data.flatMap(post => post.data.tags ?? []).filter(Boolean)
 )];
 
+const allIssues = (await getCollection('issues'))
+  .sort((a, b) => b.data.issue - a.data.issue);
+
 const allPostsForMonths = await getCollection('blog');
 const recentMonths = [...new Set(
   allPostsForMonths
@@ -70,8 +73,11 @@ const latestPosts = kakaoListPosts.map(post => ({
   </section>
 
   <section class="blog-section">
-    {(recentMonths.length > 0 || allTags.length > 0) && (
+    {(allIssues.length > 0 || recentMonths.length > 0 || allTags.length > 0) && (
       <div class="tag-row">
+        {allIssues.map(entry => (
+          <a href={`/issues/${entry.data.issue}`} class="tag-pill tag-pill--issue">{entry.data.issue}호</a>
+        ))}
         {recentMonths.map(month => {
           const [year, mon] = month.split('-');
           return (
