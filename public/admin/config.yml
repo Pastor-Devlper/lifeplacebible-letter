@@ -65,7 +65,12 @@ collections:
         time_format: false
         picker_utc: true
         required: false
-      - label: "포함 포스트 (발송 순서대로 선택)"
+      - label: "여는 인사말 (선택, 비워두면 표시 안 됨)"
+        name: greeting
+        widget: text
+        required: false
+        hint: "예: 여름의 문턱에서 반가운 소식을 전합니다"
+      - label: "포함 포스트 (발송 순서대로 선택, 첫 번째가 대표 소식으로 크게 노출됩니다)"
         name: posts
         widget: relation
         collection: blog

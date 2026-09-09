@@ -1,7 +1,6 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import BlogPost from '../../components/BlogPost.astro';
 
 export async function getStaticPaths() {
   const issues = await getCollection('issues');
@@ -34,6 +33,7 @@ type Props = {
 
 const { entry, posts } = Astro.props as Props;
 const pageTitle = `생터 꿈터 ${entry.data.issue}호`;
+
 const sendDateLabel = entry.data.sendDate
   ? new Date(entry.data.sendDate).toLocaleDateString('ko-KR', {
       year: 'numeric',
@@ -41,32 +41,97 @@ const sendDateLabel = entry.data.sendDate
       day: 'numeric',
     })
   : null;
+
+function postDateLabel(post: CollectionEntry<'blog'>) {
+  return new Date(post.data.pubDate).toLocaleDateString('ko-KR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
+const [feature, ...rest] = posts;
 ---
 
 <BaseLayout pageTitle={pageTitle} showTitle={false} fullWidth={true}>
-  <section class="tag-detail-hero">
-    <div class="tag-detail-hero-inner">
-      <a href="/blog/" class="tag-back">← 전체 보기</a>
-      <h1 class="tag-detail-title">생터 꿈터 {entry.data.issue}호</h1>
-      <div class="tag-detail-divider"></div>
-      <p class="tag-detail-count">
-        포스트 {posts.length}개{sendDateLabel && ` · ${sendDateLabel} 발송`}
+  <section class="issue-masthead">
+    <div class="issue-masthead-blob issue-masthead-blob--orange"></div>
+    <div class="issue-masthead-blob issue-masthead-blob--pink"></div>
+    <div class="issue-masthead-inner">
+      <span class="tag-pill tag-pill--issue">{entry.data.issue}호</span>
+      <h1 class="issue-masthead-title">생터 꿈터</h1>
+      <p class="issue-masthead-meta">
+        {sendDateLabel && <>{sendDateLabel} 발행<span class="issue-masthead-dot">·</span></>}
+        이번 호 소식 {posts.length}편
       </p>
     </div>
   </section>
 
-  <section class="tag-detail-section">
-    <ul class="posts-grid">
-      {posts.map((post) => (
-        <BlogPost
-          url={`/posts/${post.id}`}
-          title={post.data.title}
-          image={post.data.image}
-          pubDate={post.data.pubDate}
-          description={post.data.description}
-          tags={post.data.tags}
-        />
-      ))}
-    </ul>
+  <section class="issue-body">
+
+    {entry.data.greeting && (
+      <div class="issue-greeting">
+        <span class="issue-greeting-eyebrow">여는 인사말</span>
+        <p class="issue-greeting-text">{entry.data.greeting}</p>
+        <p class="issue-greeting-sign">— 생터성경사역원 미디어팀 드림</p>
+      </div>
+    )}
+
+    {feature && (
+      <a href={`/posts/${feature.id}`} class="issue-feature-link">
+        <article class="issue-feature-card">
+          {feature.data.image?.url && (
+            <div class="issue-feature-image" style={`background-image:url(${feature.data.image.url})`}></div>
+          )}
+          <div class="issue-feature-content">
+            <span class="issue-feature-eyebrow">이번 호 대표 소식</span>
+            <h2 class="issue-feature-title">{feature.data.title}</h2>
+            <p class="issue-feature-desc">{feature.data.description}</p>
+            <span class="issue-feature-cta">자세히 보기 →</span>
+          </div>
+        </article>
+      </a>
+    )}
+
+    {rest.length > 0 && (
+      <div class="issue-list">
+        {rest.map((post, i) => (
+          <a href={`/posts/${post.id}`} class="issue-list-item">
+            <span class="issue-list-number">{String(i + 2).padStart(2, '0')}</span>
+            {post.data.image?.url && (
+              <div class="issue-list-thumb" style={`background-image:url(${post.data.image.url})`}></div>
+            )}
+            <div class="issue-list-content">
+              <h3 class="issue-list-title">{post.data.title}</h3>
+              <p class="issue-list-meta">{post.data.author} · {postDateLabel(post)}</p>
+              <p class="issue-list-desc">{post.data.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    )}
+
+    <div class="post-support-cta">
+      <h3 class="post-support-title">✧ 말씀의 사역을 함께 이어가 주세요 ✧</h3>
+      <p class="post-support-desc">
+        생터의 사역이 계속해서 이어질 수 있도록 기도와 후원으로 함께 동역해 주세요.
+        여러분의 귀한 마음이 말씀의 사역을 이어가는 힘이 됩니다.
+      </p>
+      <a href="/about/#support" class="post-support-btn">후원 바로가기 →</a>
+      <p class="post-support-kakao-desc">
+        💚 카카오톡에서 '생터성경사역원'을 검색해 채널을 추가하시면 새로운 소식을 받아보실 수 있습니다.
+      </p>
+      <a
+        href="http://pf.kakao.com/_Ejhxgj"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="post-support-kakao-btn"
+      >카카오톡 채널 추가 →</a>
+    </div>
+
+    <div class="issue-footer-nav">
+      <a href="/blog/" class="tag-back">← 생터 꿈터 전체 보기</a>
+    </div>
+
   </section>
 </BaseLayout>

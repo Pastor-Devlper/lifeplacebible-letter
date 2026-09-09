@@ -25,6 +25,7 @@ const issues = defineCollection({
     schema: z.object({
       issue: z.number(),
       sendDate: z.coerce.date().optional(),
+      greeting: z.string().optional(),
       posts: z.array(z.string())
     })
 });
