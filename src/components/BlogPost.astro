@@ -1,5 +1,5 @@
 ---
-const { url, title, image, pubDate, description, tags } = Astro.props;
+const { url, title, image, pubDate, tags } = Astro.props;
 const date = new Date(pubDate);
 const formattedDate = date.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
@@ -14,7 +14,6 @@ const formattedDate = date.toLocaleDateString('ko-KR', { year: 'numeric', month:
     <div class="card-body">
       {tags?.[0] && <span class="card-tag">{tags[0]}</span>}
       <h3 class="card-title">{title}</h3>
-      {description && <p class="card-desc">{description}</p>}
       <span class="card-date">{formattedDate}</span>
     </div>
   </a>
@@ -93,17 +92,6 @@ const formattedDate = date.toLocaleDateString('ko-KR', { year: 'numeric', month:
     font-weight: 700;
     line-height: 1.4;
     color: #1a1a2e;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .card-desc {
-    margin: 0;
-    font-size: 0.8125rem;
-    color: #6b7280;
-    line-height: 1.6;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;

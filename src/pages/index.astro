@@ -36,7 +36,6 @@ const recentPosts = posts
               <span class="card-tag">{post.data.tags[0]}</span>
             )}
             <h3 class="card-title">{post.data.title}</h3>
-            <p class="card-desc">{post.data.description}</p>
             <span class="card-date">
               {new Date(post.data.pubDate).toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' })}
             </span>
@@ -189,13 +188,6 @@ const recentPosts = posts
     font-weight: 700;
     line-height: 1.4;
     color: #1a1a2e;
-  }
-
-  .card-desc {
-    margin: 0;
-    font-size: 0.875rem;
-    color: #6b7280;
-    line-height: 1.6;
   }
 
   .card-date {
