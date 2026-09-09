@@ -42,14 +42,6 @@ const sendDateLabel = entry.data.sendDate
     })
   : null;
 
-function postDateLabel(post: CollectionEntry<'blog'>) {
-  return new Date(post.data.pubDate).toLocaleDateString('ko-KR', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-}
-
 const [feature, ...rest] = posts;
 ---
 
@@ -102,8 +94,6 @@ const [feature, ...rest] = posts;
             )}
             <div class="issue-list-content">
               <h3 class="issue-list-title">{post.data.title}</h3>
-              <p class="issue-list-meta">{post.data.author} · {postDateLabel(post)}</p>
-              <p class="issue-list-desc">{post.data.description}</p>
             </div>
           </a>
         ))}
