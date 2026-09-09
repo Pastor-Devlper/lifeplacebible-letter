@@ -883,31 +883,10 @@ video {
   line-height: 1.8;
 }
 
-.ministry-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.ministry-card {
-  background: #f8f9fa;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.ministry-name {
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: #0d0950;
-}
-
-.ministry-desc {
-  font-size: 0.8125rem;
-  color: #6b7280;
+.about-photo {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
 }
 
 .about-video iframe {
@@ -995,18 +974,8 @@ video {
     padding: 20px 1.5rem 56px;
   }
 
-  .ministry-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .support-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .ministry-grid {
-    grid-template-columns: 1fr;
   }
 }
 

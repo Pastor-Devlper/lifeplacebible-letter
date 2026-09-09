@@ -2,22 +2,13 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "소개";
-
-const ministries = [
-  { name: "지부운영국", desc: "국내사역" },
-  { name: "SI국", desc: "해외사역" },
-  { name: "출판국", desc: "교재, PPT" },
-  { name: "다음세대", desc: "KIDS국, YRG국, 펄국" },
-  { name: "군사역본부", desc: "군 선교사역" },
-  { name: "총무국", desc: "행정지원" },
-];
 ---
 
 <BaseLayout pageTitle={pageTitle} showTitle={false} fullWidth={true}>
   <section class="about-hero">
     <div class="about-hero-inner">
       <span class="about-tag">생터성경사역원</span>
-      <h1 class="about-title">막힌 곳을 뚫어주는<br />성경교육기관</h1>
+      <h1 class="about-title">전 세대가 성경을 재미있게 읽을 수 있도록 돕는 기관입니다.</h1>
       <div class="about-divider"></div>
     </div>
   </section>
@@ -27,24 +18,18 @@ const ministries = [
 
       <div class="about-text">
         <p>
-          <strong>생터성경사역원</strong>은 누구나 성경을 입체적으로 읽을 수 있도록 돕는
-          전문강사를 양성하는 성경교육기관입니다.
+          <strong>생터성경사역원</strong>은 전 세대가 성경 전체를 이해하며 재밌게 읽을 수 있도록 돕는 성경 교육기관입니다.
         </p>
         <p>
-          '어? 성경이 읽어지네' 기반의 교육 과정을 통해 전문강사는
-          1단계 성경일독학교, 2단계 인도자 컨퍼런스를 수료한 후,
-          마지막 단계인 <strong>전문강사스쿨</strong>(6개월 정규과정)을 거쳐 세워집니다.
+          성경 읽기에 필요한 콘텐츠를 개발하며 성경 일독을 지도할 <strong>전문강사</strong>를 양성하고 있습니다.
         </p>
       </div>
 
-      <div class="ministry-grid">
-        {ministries.map((m) => (
-          <div class="ministry-card">
-            <span class="ministry-name">{m.name}</span>
-            <span class="ministry-desc">{m.desc}</span>
-          </div>
-        ))}
-      </div>
+      <img
+        src="/uploads/about-bible-study-collage.jpg"
+        alt="성경을 공부하고 필사하는 모습과 생터 교재들"
+        class="about-photo"
+      />
 
       <div class="about-video">
         <iframe src="https://www.youtube.com/embed/YOOpan9uQvc?si=KlbcPAHE15XuSg_1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
