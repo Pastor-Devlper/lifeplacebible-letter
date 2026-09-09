@@ -1393,17 +1393,6 @@ a.card:hover .card-image img {
   transform: translateY(-2px);
 }
 
-.issue-list-number {
-  flex-shrink: 0;
-  width: 40px;
-  font-family: 'Gowun Dodum', sans-serif;
-  font-size: 1.75rem;
-  line-height: 1;
-  color: transparent;
-  -webkit-text-stroke: 1.3px #ff9776;
-  text-align: right;
-}
-
 .issue-list-thumb {
   flex-shrink: 0;
   width: 120px;

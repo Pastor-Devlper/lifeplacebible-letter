@@ -95,9 +95,8 @@ const [feature, ...rest] = posts;
 
     {rest.length > 0 && (
       <div class="issue-list">
-        {rest.map((post, i) => (
+        {rest.map((post) => (
           <a href={`/posts/${post.id}`} class="issue-list-item">
-            <span class="issue-list-number">{String(i + 2).padStart(2, '0')}</span>
             {post.data.image?.url && (
               <div class="issue-list-thumb" style={`background-image:url(${post.data.image.url})`}></div>
             )}
