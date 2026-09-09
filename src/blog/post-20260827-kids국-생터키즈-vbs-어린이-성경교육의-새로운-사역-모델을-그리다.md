@@ -19,7 +19,7 @@ tags:
 
 # **새로운 사역 모델을 그리다**
 
-여름이면 교회학교 현장 곳곳에서 여름성경학교가 열립니다. 올여름 Kids국은 전국에서 총 일곱 차례에 걸쳐 ‘생터키즈 VBS’를 진행하며, 현장을 통해 **1,200여 명에게 성경 말씀을 전했습니다.**
+여름이면 교회학교 현장 곳곳에서 여름성경학교가 열립니다. 올여름 Kids국은 전국에서 총 일곱 차례에 걸쳐 ‘생터키즈 VBS(Vacation Bible School)’를 진행하며, 현장을 통해 **1,200여 명에게 성경 말씀을 전했습니다.**
 
 이번 여름 사역은 동일한 형태의 프로그램을 반복하는 방식에서 벗어나, 각 지역과 교회, 참여 어린이들의 특성과 사역 환경에 맞춰 다양한 형태로 진행되었습니다. 이를 통해 Kids국은 각 현장에서 시도된 사역 모델을 구체화하고, 어린이 성경교육의 새로운 가능성을 모색하는 시간을 가졌습니다.
 
@@ -51,11 +51,7 @@ Kids국은 각 현장의 필요에 귀 기울이며 어린이들이 실제로 �
 
 ![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787793300/%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB3_%E1%84%80%E1%85%A9%E1%84%83%E1%85%A5%E1%86%A8%E1%84%80%E1%85%A1%E1%86%B7%E1%84%85%E1%85%B5%E1%84%80%E1%85%AD%E1%84%92%E1%85%AC_lbqown.jpg)
 
-
-
 ![고덕감리교회](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791546/KakaoTalk_Photo_2026-08-27-09-44-49_001_hk1mtp.jpg)
-
-
 
 ![](https://res.cloudinary.com/dr5s1mtyi/image/upload/c_limit,f_auto,q_auto,w_1920/v1787791548/KakaoTalk_Photo_2026-08-27-09-45-15_004_czsool.jpg)
 
