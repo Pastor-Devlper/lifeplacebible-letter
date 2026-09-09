@@ -25,7 +25,11 @@ const allTags = [...new Set(
 )];
 
 const allIssues = (await getCollection('issues'))
-  .sort((a, b) => b.data.issue - a.data.issue);
+  .sort((a, b) => {
+    const aTime = a.data.sendDate ? new Date(a.data.sendDate).valueOf() : 0;
+    const bTime = b.data.sendDate ? new Date(b.data.sendDate).valueOf() : 0;
+    return bTime - aTime;
+  });
 
 const allPostsForMonths = await getCollection('blog');
 const recentMonths = [...new Set(

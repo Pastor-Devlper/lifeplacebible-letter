@@ -56,7 +56,7 @@ collections:
     slug: "{{fields.issue}}호"
     identifier_field: issue
     fields:
-      - { label: "호수", name: issue, widget: number, value_type: int, min: 1, hint: "예: 1, 2, 3..." }
+      - { label: "호수", name: issue, widget: string, hint: "예: 1, 2, 특별호 등 자유롭게 입력 (자동으로 뒤에 '호'가 붙습니다)" }
       - label: "발송일"
         name: sendDate
         widget: datetime

@@ -23,7 +23,7 @@ const blog = defineCollection({
 const issues = defineCollection({
     loader: glob({ pattern: '**/*.json', base: "./src/data/issues" }),
     schema: z.object({
-      issue: z.number(),
+      issue: z.coerce.string(),
       sendDate: z.coerce.date().optional(),
       greeting: z.string().optional(),
       posts: z.array(z.string())

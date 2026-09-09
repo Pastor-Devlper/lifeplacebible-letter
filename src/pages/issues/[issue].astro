@@ -20,7 +20,7 @@ export async function getStaticPaths() {
       .filter((post): post is (typeof allPosts)[number] => Boolean(post));
 
     return {
-      params: { issue: String(entry.data.issue) },
+      params: { issue: entry.data.issue },
       props: { entry, posts },
     };
   });
