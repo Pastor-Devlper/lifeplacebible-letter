@@ -1189,6 +1189,17 @@ a.card:hover .card-image img {
   color: #ffffff;
 }
 
+.tag-pill--month {
+  background-color: #fff4f0;
+  color: #ff9776;
+  font-weight: 700;
+}
+
+.tag-pill--month:hover {
+  background-color: #ff9776;
+  color: #ffffff;
+}
+
 .pagination {
   display: flex;
   align-items: center;
