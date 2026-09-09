@@ -847,6 +847,7 @@ video {
   color: #1a1a2e;
   font-family: 'Gowun Dodum', sans-serif;
   text-align: center;
+  word-break: keep-all;
 }
 
 .about-divider {
