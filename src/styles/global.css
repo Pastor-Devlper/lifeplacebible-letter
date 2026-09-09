@@ -1179,13 +1179,13 @@ a.card:hover .card-image img {
 }
 
 .tag-pill--issue {
-  background-color: #ecfdf5;
-  color: #059669;
+  background-color: #fdf2f8;
+  color: #db2777;
   font-weight: 700;
 }
 
 .tag-pill--issue:hover {
-  background-color: #059669;
+  background-color: #db2777;
   color: #ffffff;
 }
 
