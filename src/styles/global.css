@@ -348,6 +348,66 @@ video {
   margin: 1.5rem 0 0.75rem;
 }
 
+.post-support-cta {
+  max-width: 760px;
+  width: 100%;
+  margin-top: 40px;
+  padding: 32px 28px;
+  border-radius: 12px;
+  background: #eef2ff;
+  text-align: center;
+}
+
+.post-support-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #4338ca;
+  margin: 0 0 12px;
+}
+
+.post-support-desc {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: #374151;
+  margin: 0 0 16px;
+}
+
+.post-support-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 8px;
+  background: #4338ca;
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none !important;
+}
+
+.post-support-btn:hover {
+  background: #372ea3;
+}
+
+.post-support-kakao-desc {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 24px 0 12px;
+}
+
+.post-support-kakao-btn {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 8px;
+  background: #fee500;
+  color: #3c1e1e !important;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none !important;
+}
+
+.post-support-kakao-btn:hover {
+  background: #f5da00;
+}
+
 .post-footer {
   max-width: 760px;
   width: 100%;
