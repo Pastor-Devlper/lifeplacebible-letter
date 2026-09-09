@@ -43,6 +43,30 @@ const sendDateLabel = entry.data.sendDate
   : null;
 
 const [feature, ...rest] = posts;
+
+function excerpt(post: CollectionEntry<'blog'>, length: number) {
+  const text = (post.body ?? '')
+    .split('\n')
+    .filter((line) => {
+      const trimmed = line.trim();
+      if (!trimmed) return false;
+      if (trimmed.startsWith('#')) return false;
+      if (trimmed.startsWith('!')) return false;
+      if (trimmed.startsWith('>')) return false;
+      if (trimmed.startsWith('---') || trimmed.startsWith('─')) return false;
+      return true;
+    })
+    .join(' ')
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/[*_`]/g, '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/\\/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  return text.length > length ? `${text.slice(0, length)}...` : text;
+}
 ---
 
 <BaseLayout pageTitle={pageTitle} showTitle={false} fullWidth={true}>
@@ -78,7 +102,7 @@ const [feature, ...rest] = posts;
           <div class="issue-feature-content">
             <span class="issue-feature-eyebrow">이번 호 대표 소식</span>
             <h2 class="issue-feature-title">{feature.data.title}</h2>
-            <p class="issue-feature-desc">{feature.data.description}</p>
+            <p class="issue-feature-desc">{excerpt(feature, 140)}</p>
             <span class="issue-feature-cta">자세히 보기 →</span>
           </div>
         </article>
@@ -94,7 +118,7 @@ const [feature, ...rest] = posts;
             )}
             <div class="issue-list-content">
               <h3 class="issue-list-title">{post.data.title}</h3>
-              <p class="issue-list-desc">{post.data.description}</p>
+              <p class="issue-list-desc">{excerpt(post, 90)}</p>
             </div>
           </a>
         ))}
