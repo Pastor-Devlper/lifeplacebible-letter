@@ -11,7 +11,6 @@ const pubDate = new Date(frontmatter.pubDate).toLocaleDateString('ko-KR', {
   showTitle={false}
   fullWidth={true}
   ogImage={frontmatter.image?.url}
-  ogDescription={frontmatter.description}
   ogUrl={Astro.url.href}
 >
 
@@ -79,7 +78,6 @@ const pubDate = new Date(frontmatter.pubDate).toLocaleDateString('ko-KR', {
         <div class="post-footer-actions">
           <ShareButtons
             title={frontmatter.title}
-            description={frontmatter.description}
             imageUrl={frontmatter.image?.url}
           />
           <a href="/blog/" class="post-back">← 목록으로</a>

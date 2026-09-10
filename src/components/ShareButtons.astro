@@ -1,18 +1,16 @@
 ---
 interface Props {
   title: string;
-  description?: string;
   imageUrl?: string;
   link?: string;
 }
-const { title, description, imageUrl, link } = Astro.props;
+const { title, imageUrl, link } = Astro.props;
 const kakaoEnabled = !!import.meta.env.PUBLIC_KAKAO_JS_KEY;
 ---
 
 <div
   class="share-buttons"
   data-title={title}
-  data-description={description ?? ""}
   data-image-url={imageUrl ?? ""}
   data-link={link ?? ""}
 >
@@ -75,7 +73,6 @@ const kakaoEnabled = !!import.meta.env.PUBLIC_KAKAO_JS_KEY;
   document.querySelectorAll<HTMLElement>(".share-buttons").forEach((container) => {
     const link = container.dataset.link || window.location.href;
     const title = container.dataset.title || document.title;
-    const description = container.dataset.description || "";
     const imageUrl = container.dataset.imageUrl || `${window.location.origin}/og-image.jpg`;
 
     const kakaoBtn = container.querySelector<HTMLButtonElement>(".share-btn-kakao");
@@ -89,7 +86,6 @@ const kakaoEnabled = !!import.meta.env.PUBLIC_KAKAO_JS_KEY;
         objectType: "feed",
         content: {
           title,
-          description,
           imageUrl,
           link: { mobileWebUrl: link, webUrl: link },
         },
