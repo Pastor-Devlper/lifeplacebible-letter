@@ -322,6 +322,10 @@ video {
   opacity: 0.85;
 }
 
+.post-content .goudy-i {
+  font-family: 'Goudy Bookletter 1911', serif;
+}
+
 .post-content p {
   line-height: 1.8;
   color: #374151;
