@@ -25,6 +25,10 @@ collections:
     extension: md
     format: frontmatter
     slug: "post-{{year}}{{month}}{{day}}-{{slug}}"
+    sortable_fields:
+      - { field: pubDate, default_sort: desc }
+      - title
+      - author
     fields:
       - { label: "제목", name: title, widget: string }
       - label: "작성일"
