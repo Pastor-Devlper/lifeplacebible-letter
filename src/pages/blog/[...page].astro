@@ -2,6 +2,7 @@
 import type { GetStaticPathsOptions, Page } from 'astro';
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
+import { getListedPosts } from '../../lib/posts';
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPost from "../../components/BlogPost.astro";
 import KakaoListShareButton from "../../components/KakaoListShareButton.astro";
@@ -12,7 +13,7 @@ type Props = {
 };
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  const allPosts = (await getCollection('blog'))
+  const allPosts = (await getListedPosts())
     .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
   return paginate(allPosts, { pageSize: 9 });
 }
@@ -31,7 +32,8 @@ const allIssues = (await getCollection('issues'))
     return bTime - aTime;
   });
 
-const allPostsForMonths = await getCollection('blog');
+const allPostsForMonths = await getListedPosts();
+const everyPost = await getCollection('blog');
 const recentMonths = [...new Set(
   allPostsForMonths
     .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf())
@@ -51,7 +53,7 @@ function fileSlug(post: (typeof allPostsForMonths)[number]): string {
 
 const pickedIds = (kakaoPicks.posts ?? []) as string[];
 const pickedPosts = pickedIds
-  .map(id => allPostsForMonths.find(post => fileSlug(post) === id))
+  .map(id => everyPost.find(post => fileSlug(post) === id))
   .filter((post): post is (typeof allPostsForMonths)[number] => Boolean(post));
 const kakaoListPosts = pickedPosts.length > 0
   ? pickedPosts.slice(0, 5)

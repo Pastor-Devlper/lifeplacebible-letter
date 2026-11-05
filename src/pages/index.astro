@@ -1,10 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
+import { getListedPosts } from "../lib/posts";
 
 const pageTitle = "생터성경사역원 소식";
 
-const posts = await getCollection('blog');
+const posts = await getListedPosts();
 const recentPosts = posts
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
   .slice(0, 4);

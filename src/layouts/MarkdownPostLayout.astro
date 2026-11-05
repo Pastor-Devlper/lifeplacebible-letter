@@ -12,6 +12,7 @@ const pubDate = new Date(frontmatter.pubDate).toLocaleDateString('ko-KR', {
   fullWidth={true}
   ogImage={frontmatter.image?.url}
   ogUrl={Astro.url.href}
+  noindex={frontmatter.unlisted}
 >
 
   <article class="post-article">
