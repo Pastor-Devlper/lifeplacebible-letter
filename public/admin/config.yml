@@ -30,6 +30,7 @@ collections:
       - title
       - author
     fields:
+      - { label: "공개 설정", name: unlisted, widget: unlisted-link, required: false }
       - { label: "제목", name: title, widget: string }
       - label: "작성일"
         name: pubDate
@@ -46,7 +47,6 @@ collections:
           - { label: "이미지", name: url, widget: image }
           - { label: "이미지 설명 (alt)", name: alt, widget: string }
       - { label: "태그", name: tags, widget: list }
-      - { label: "공개 설정", name: unlisted, widget: unlisted-link, required: false }
       - { label: "본문", name: body, widget: markdown }
 
   - name: issues
