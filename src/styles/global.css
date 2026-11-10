@@ -925,6 +925,7 @@ video {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   padding: 28px 16px;
   border: 1.5px solid #e5e7eb;
@@ -950,12 +951,6 @@ video {
   font-weight: 600;
   color: #111827;
   text-align: center;
-}
-
-.support-link-label {
-  font-size: 0.8125rem;
-  color: #6366f1;
-  font-weight: 500;
 }
 
 /* 성경아이: 글자 없이 로고만 보여주는 카드 */
