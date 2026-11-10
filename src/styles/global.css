@@ -958,6 +958,32 @@ video {
   font-weight: 500;
 }
 
+/* 성경아이: 로고가 보이도록 한 줄 전체를 쓰는 카드 */
+.support-card-featured {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  justify-content: center;
+  gap: 28px;
+  padding: 20px 24px;
+}
+
+.support-logo {
+  width: 150px;
+  height: auto;
+  flex: none;
+}
+
+.support-featured-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.support-featured-text .support-name {
+  font-size: 1.125rem;
+}
+
 @media screen and (max-width: 768px) {
   .about-hero {
     padding: 24px 1rem;
