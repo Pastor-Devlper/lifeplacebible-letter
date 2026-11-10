@@ -917,7 +917,7 @@ video {
 
 .support-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 16px;
 }
 
@@ -958,30 +958,16 @@ video {
   font-weight: 500;
 }
 
-/* 성경아이: 로고가 보이도록 한 줄 전체를 쓰는 카드 */
-.support-card-featured {
-  grid-column: 1 / -1;
-  flex-direction: row;
+/* 성경아이: 글자 없이 로고만 보여주는 카드 */
+.support-card-logo {
   justify-content: center;
-  gap: 28px;
-  padding: 20px 24px;
+  padding: 12px;
 }
 
 .support-logo {
-  width: 150px;
+  width: 100%;
+  max-width: 130px;
   height: auto;
-  flex: none;
-}
-
-.support-featured-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-}
-
-.support-featured-text .support-name {
-  font-size: 1.125rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -999,6 +985,15 @@ video {
 
   .support-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* 모바일: 5번째(성경아이) 카드는 한 줄 전체 폭 */
+  .support-card-logo {
+    grid-column: 1 / -1;
+  }
+
+  .support-logo {
+    max-width: 150px;
   }
 }
 
